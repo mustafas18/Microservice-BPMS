@@ -1,0 +1,6 @@
+@BpmsApi_HostAddress = http://localhost:5273
+
+GET {{BpmsApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
