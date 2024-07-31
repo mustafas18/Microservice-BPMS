@@ -1,4 +1,5 @@
 
+using BpmsApi.Apis;
 using BpmsApi.Infrastructure;
 using eShop.ServiceDefaults;
 using Microsoft.EntityFrameworkCore;
@@ -19,8 +20,10 @@ public class Program
         // Add services to the container.
         builder.AddServiceDefaults();
 
+
+
         // Add identity authentication
-        builder.AddDefaultAuthentication();
+        // builder.AddDefaultAuthentication();
 #if DEBUG
         builder.Services.AddDbContext<AppDbContext>(options =>
          options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
@@ -28,39 +31,20 @@ public class Program
             builder.Services.AddDbContext<AppDbContext>(options =>
              options.UseSqlServer(Configuration.GetConnectionString("ReleaseConnectionString")));
 #endif
-        builder.Services.AddControllers();
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen(c => {
-            c.SwaggerDoc("v1",new OpenApiInfo
-        {
-            Title = "BPMS Designer API",
-            Version = "v1",
-        }
-     );
-            // using System.Reflection;
-            var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 
-        });
+        builder.Services.AddProblemDetails();
+        var withApiVersioning = builder.Services.AddApiVersioning();
+        builder.AddDefaultOpenApi(withApiVersioning);
 
         var app = builder.Build();
 
-        // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
+        app.MapDefaultEndpoints();
 
-        app.UseHttpsRedirection();
-
-        
-        app.UseAuthorization();
-
-
-        app.MapControllers();
-
+        app.NewVersionedApi("bpms")
+            .MapBpmsApiV1();
+       
+        app.UseDefaultOpenApi();
         app.Run();
+
     }
 }

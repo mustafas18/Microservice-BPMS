@@ -26,11 +26,10 @@ internal sealed class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOpti
 
     public void Configure(SwaggerGenOptions options)
     {
-        foreach (var description in _provider.ApiVersionDescriptions)
-        {
-            options.SwaggerDoc(description.GroupName, CreateInfoForApiVersion(description));
-        }
-
+        //foreach (var description in _provider.ApiVersionDescriptions)
+        //{
+        //    options.SwaggerDoc(description.GroupName, CreateInfoForApiVersion(description));
+        //}
         ConfigureAuthorization(options);
     }
 
