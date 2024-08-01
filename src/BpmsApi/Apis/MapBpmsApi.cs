@@ -1,4 +1,5 @@
-﻿using BpmsApi.Services;
+﻿using Bpms.API.Infrastructure.Services;
+using BpmsApi.Services;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,8 +20,8 @@ namespace BpmsApi.Apis
             //api.MapGet("/items/by/{name:minlength(1)}", GetItemsByName);
             //api.MapGet("/items/{catalogItemId:int}/pic", GetItemPictureById);
 
-            //// Routes for resolving catalog items using AI.
-            //api.MapGet("/items/withsemanticrelevance/{text:minlength(1)}", GetItemsBySemanticRelevance);
+            // Routes for get identity info
+            api.MapGet("/identity", GetIdentity);
 
             //// Routes for resolving catalog items by type and brand.
             //api.MapGet("/items/type/{typeId}/brand/{brandId?}", GetItemsByBrandAndTypeId);
@@ -41,6 +42,9 @@ namespace BpmsApi.Apis
         {
             return services.Forcast15Days();
         }
-
+        public static string GetIdentity([AsParameters] BpmsServices services)
+        {
+            return services.IdentityService.GetUserIdentity();
+        }
     }
 }

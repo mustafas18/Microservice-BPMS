@@ -1,4 +1,6 @@
-﻿using BpmsApi.Services;
+﻿using Bpms.API.Infrastructure.Services;
+using BpmsApi.Services;
+using System.Security.Principal;
 
 namespace BpmsApi.Extensions
 {
@@ -9,6 +11,9 @@ namespace BpmsApi.Extensions
 
 
             builder.Services.AddSingleton<IWeatherForcast, WeatherForcast>();
+
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddTransient<IIdentityService, IdentityService>();
         }
     }
 
