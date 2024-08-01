@@ -19,9 +19,9 @@
         {
             return new List<ApiScope>
             {
-                new ApiScope("orders", "Orders Service"),
-                new ApiScope("basket", "Basket Service"),
-                new ApiScope("webhooks", "Webhooks registration Service"),
+                new ApiScope("bpms.create", "BPMS Designer"),
+                new ApiScope("bpms.read", "BPMS Viewer"),
+                new ApiScope("bpms.update", "BPMS modifier"),
             };
         }
 
@@ -143,50 +143,20 @@
                 },
                 new Client
                 {
-                    ClientId = "basketswaggerui",
-                    ClientName = "Basket Swagger UI",
+                    ClientId = "bpmsswaggerui",
+                    ClientName = "BPMS Swagger UI",
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
 
-                    RedirectUris = { $"{configuration["BasketApiClient"]}/swagger/oauth2-redirect.html" },
+                    RedirectUris = { $"https://localhost:7185/swagger/oauth2-redirect.html" },
                     PostLogoutRedirectUris = { $"{configuration["BasketApiClient"]}/swagger/" },
 
                     AllowedScopes =
                     {
-                        "basket"
+                        "bpms.create","bpms.read","bpms.update"
                     }
                 },
-                new Client
-                {
-                    ClientId = "orderingswaggerui",
-                    ClientName = "Ordering Swagger UI",
-                    AllowedGrantTypes = GrantTypes.Implicit,
-                    AllowAccessTokensViaBrowser = true,
-
-                    RedirectUris = { $"{configuration["OrderingApiClient"]}/swagger/oauth2-redirect.html" },
-                    PostLogoutRedirectUris = { $"{configuration["OrderingApiClient"]}/swagger/" },
-
-                    AllowedScopes =
-                    {
-                        "orders"
-                    }
-                },
-                new Client
-                {
-                    ClientId = "webhooksswaggerui",
-                    ClientName = "WebHooks Service Swagger UI",
-                    AllowedGrantTypes = GrantTypes.Implicit,
-                    AllowAccessTokensViaBrowser = true,
-
-                    RedirectUris = { $"{configuration["WebhooksApiClient"]}/swagger/oauth2-redirect.html" },
-                    PostLogoutRedirectUris = { $"{configuration["WebhooksApiClient"]}/swagger/" },
-
-                    AllowedScopes =
-                    {
-                        "webhooks"
-                    }
-                }
-            };
+             };
         }
     }
 }

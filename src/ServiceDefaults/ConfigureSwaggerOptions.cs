@@ -148,6 +148,7 @@ internal sealed class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOpti
         options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
         {
             Type = SecuritySchemeType.OAuth2,
+            Scheme = "OAuth2",
             Flows = new OpenApiOAuthFlows()
             {
                 // TODO: Change this to use Authorization Code flow with PKCE
@@ -160,8 +161,10 @@ internal sealed class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOpti
             }
         });
 
-
         options.OperationFilter<AuthorizeCheckOperationFilter>([scopes.Keys.ToArray()]);
+
+     
+
     }
 
     private sealed class AuthorizeCheckOperationFilter(string[] scopes) : IOperationFilter
