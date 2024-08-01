@@ -1,9 +1,9 @@
 ﻿
 namespace eShop.Identity.API;
 
-public class UsersSeed(ILogger<UsersSeed> logger, UserManager<ApplicationUser> userManager) //: IDbSeeder<ApplicationDbContext>
+public class UsersSeed(ILogger<UsersSeed> logger, UserManager<ApplicationUser> userManager, ApplicationDbContext context) //: IDbSeeder<ApplicationDbContext>
 {
-    public async Task SeedAsync(ApplicationDbContext context)
+    public async Task SeedAsync()
     {
         var alice = await userManager.FindByNameAsync("alice");
 

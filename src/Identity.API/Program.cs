@@ -1,10 +1,13 @@
-﻿using eShop.ServiceDefaults;
+﻿using eShop.Identity.API;
+using eShop.ServiceDefaults;
+
 using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager Configuration = builder.Configuration;
 
 builder.AddServiceDefaults();
+builder.Services.AddScoped<UsersSeed>();
 
 builder.Services.AddControllersWithViews();
 
@@ -15,11 +18,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
              options.UseSqlServer(Configuration.GetConnectionString("ReleaseConnectionString")));
 #endif
-
-//// Apply database migration automatically. Note that this approach is not
-//// recommended for production scenarios. Consider generating SQL scripts from
-//// migrations instead.
-//builder.Services.AddMigration<ApplicationDbContext, UsersSeed>();
 
 
 
@@ -57,6 +55,12 @@ builder.Services.AddTransient<ILoginService<ApplicationUser>, EFLoginService>();
 builder.Services.AddTransient<IRedirectService, RedirectService>();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbInitializer = scope.ServiceProvider.GetRequiredService<UsersSeed>();
+    await dbInitializer.SeedAsync();
+}
 
 app.MapDefaultEndpoints();
 
