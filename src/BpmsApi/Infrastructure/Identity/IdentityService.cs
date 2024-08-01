@@ -1,4 +1,7 @@
-﻿namespace Bpms.API.Infrastructure.Services;
+﻿using Azure.Core;
+using Microsoft.AspNetCore.Authentication;
+
+namespace Bpms.API.Infrastructure.Services;
 
 public class IdentityService(IHttpContextAccessor context) : IIdentityService
 {
@@ -7,4 +10,6 @@ public class IdentityService(IHttpContextAccessor context) : IIdentityService
 
     public string GetUserName()
         => context.HttpContext?.User.Identity?.Name;
+    public string? GetAccesssToken()
+       => context.HttpContext?.Request.Headers["Authorization"];
 }

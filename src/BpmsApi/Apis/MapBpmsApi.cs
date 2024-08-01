@@ -23,6 +23,7 @@ namespace BpmsApi.Apis
 
             // Routes for get identity info
             api.MapGet("/identity", GetIdentity).RequireAuthorization();
+            api.MapGet("/identity/acceess_token", GetAccessToken).RequireAuthorization();
 
             //// Routes for resolving catalog items by type and brand.
             //api.MapGet("/items/type/{typeId}/brand/{brandId?}", GetItemsByBrandAndTypeId);
@@ -47,6 +48,10 @@ namespace BpmsApi.Apis
         public static string GetIdentity([AsParameters] BpmsServices services)
         {
             return services.IdentityService.GetUserIdentity();
+        }
+        public static string GetAccessToken([AsParameters] BpmsServices services)
+        {
+            return services.IdentityService.GetAccesssToken() ?? "null";
         }
     }
 }
