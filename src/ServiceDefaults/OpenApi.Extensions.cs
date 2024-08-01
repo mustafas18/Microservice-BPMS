@@ -33,13 +33,14 @@ public static partial class Extensions
                 var authSection = openApiSection.GetSection("Auth");
                 var endpointSection = openApiSection.GetRequiredSection("Endpoint");
 
-               // foreach (var description in app.DescribeApiVersions())
-                //{
-                    var name = "description.GroupName";
+                foreach (var description in app.DescribeApiVersions())
+                {
+                    var name = description.GroupName;
                     var url = endpointSection["Url"] ?? $"{pathBase}/swagger/{name}/swagger.json";
 
                     setup.SwaggerEndpoint(url, name);
-                //}
+                }
+
 
                 if (authSection.Exists())
                 {

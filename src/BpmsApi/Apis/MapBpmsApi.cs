@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using BpmsApi.Services;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BpmsApi.Apis
@@ -7,10 +8,12 @@ namespace BpmsApi.Apis
     {
         public static IEndpointRouteBuilder MapBpmsApiV1(this IEndpointRouteBuilder app)
         {
-            var api = app.MapGroup("api/bpms").HasApiVersion(1.0);
+            var api = app.MapGroup("api/bpms")
+                .HasApiVersion(1.0);
 
             // Routes for querying catalog items.
-            api.MapGet("/items", GetAllItems);
+            api.MapGet("/15days", Get15DaysForcast);
+            ;
             //api.MapGet("/items/by", GetItemsByIds);
             //api.MapGet("/items/{id:int}", GetItemById);
             //api.MapGet("/items/by/{name:minlength(1)}", GetItemsByName);
@@ -34,11 +37,9 @@ namespace BpmsApi.Apis
         }
 
 
-        public static async Task<string> GetAllItems()
+        public static List<string> Get15DaysForcast([AsParameters] WeatherForcast services)
         {
-
-
-            return "sf";
+            return services.Forcast15Days();
         }
 
     }
