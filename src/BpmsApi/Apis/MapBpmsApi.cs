@@ -2,6 +2,7 @@
 using BpmsApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BpmsApi.Apis
@@ -44,6 +45,7 @@ namespace BpmsApi.Apis
         {
             return services.Forcast15Days();
         }
+      
 
         public static string GetIdentity([AsParameters] BpmsServices services)
         {
