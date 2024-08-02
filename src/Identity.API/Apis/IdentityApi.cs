@@ -19,7 +19,7 @@ namespace Identity.API.Apis
 
             // Routes for querying catalog items.
             api.MapPost("/login", Login);
-            api.MapGet("/token", async (HttpContext context) => "d");
+            api.MapGet("/token",  (HttpContext context) => context.Request.Headers["Authorization"]);
 
 
             return api;
@@ -34,7 +34,9 @@ namespace Identity.API.Apis
             {
                 var user = await service.UserManager.FindByNameAsync(model.Username);
                 await service.Events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.UserName));
-                return Results.Ok();
+              
+                var accessToken= await service.SignInManager.Context.GetTokenAsync("access_token");
+                return Results.Ok(accessToken);
             }
             return Results.NoContent();
 

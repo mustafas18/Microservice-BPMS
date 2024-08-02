@@ -3,11 +3,13 @@ using eShop.Identity.API;
 using eShop.ServiceDefaults;
 using Identity.API.Apis;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager Configuration = builder.Configuration;
 
 builder.AddServiceDefaults();
+
 builder.Services.AddScoped<UsersSeed>();
 
 builder.Services.AddControllersWithViews();
@@ -23,6 +25,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.AddCorsPolicy("myCorsPolicy");
 
 builder.Services.AddHttpContextAccessor();
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddApiVersioning(options =>
