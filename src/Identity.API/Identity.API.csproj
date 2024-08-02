@@ -47,6 +47,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.76" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+    <PackageReference Include="Asp.Versioning.Http" Version="8.1.0" />
   </ItemGroup>
 
 
@@ -59,6 +60,7 @@
   
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="NewFolder\" />
   </ItemGroup>
 
 </Project>

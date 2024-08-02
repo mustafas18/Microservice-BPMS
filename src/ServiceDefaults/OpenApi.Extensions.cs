@@ -55,7 +55,17 @@ public static partial class Extensions
 
         return app;
     }
-
+    public static IHostApplicationBuilder AddCorsPolicy(this IHostApplicationBuilder builder,string corsPolicy)
+    {
+        builder.Services.AddCors(opt =>
+        {
+            opt.AddPolicy(corsPolicy, policy =>
+            {
+                policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+            });
+        });
+        return builder;
+    }
     public static IHostApplicationBuilder AddDefaultOpenApi(
         this IHostApplicationBuilder builder,
         IApiVersioningBuilder? apiVersioning = default)

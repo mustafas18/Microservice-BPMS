@@ -1,6 +1,7 @@
-﻿using eShop.Identity.API;
+﻿using Asp.Versioning;
+using eShop.Identity.API;
 using eShop.ServiceDefaults;
-
+using Identity.API.Apis;
 using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,7 +20,22 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
              options.UseSqlServer(Configuration.GetConnectionString("ReleaseConnectionString")));
 #endif
 
+builder.AddCorsPolicy("myCorsPolicy");
 
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ReportApiVersions = true;
+})
+    .AddApiExplorer(options =>
+    {
+        options.GroupNameFormat = "'v'VVV";
+        options.SubstituteApiVersionInUrl = true;
+    });
 
 // Apply database migration automatically. Note that this approach is not
 // recommended for production scenarios. Consider generating SQL scripts from
@@ -62,6 +78,8 @@ using (var scope = app.Services.CreateScope())
     await dbInitializer.SeedAsync();
 }
 
+app.UseCors("myCorsPolicy");
+
 app.MapDefaultEndpoints();
 
 app.UseStaticFiles();
@@ -72,6 +90,16 @@ app.UseRouting();
 app.UseIdentityServer();
 app.UseAuthorization();
 
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.MapDefaultControllerRoute();
+
+
+
+app.NewVersionedApi("identity")
+    .MapIdentityApiV1();
+
+app.UseDefaultOpenApi();
 
 app.Run();
