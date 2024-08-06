@@ -82,8 +82,8 @@
                         new Secret("secret".Sha256())
                     },
                     ClientUri = $"{configuration["WebAppClient"]}",                             // public uri of the client
-                    AllowedGrantTypes = GrantTypes.Code,
-                    AllowAccessTokensViaBrowser = false,
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                    AllowAccessTokensViaBrowser = true,
                     RequireConsent = false,
                     AllowOfflineAccess = true,
                     AlwaysIncludeUserClaimsInIdToken = true,
@@ -101,10 +101,7 @@
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.OfflineAccess,
-                        "orders",
-                        "basket",
-                        "webshoppingagg",
-                        "webhooks"
+                        "bpms"
                     },
                     AccessTokenLifetime = 60*60*2, // 2 hours
                     IdentityTokenLifetime= 60*60*2 // 2 hours
