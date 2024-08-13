@@ -1,4 +1,6 @@
-﻿namespace eShop.Identity.API.Data;
+﻿using Identity.API.Models;
+
+namespace eShop.Identity.API.Data;
 
 /// <remarks>
 /// Add migrations using the following command inside the 'Identity.API' project directory:
@@ -11,7 +13,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         : base(options)
     {
     }
-
+    public DbSet<Department> Departments { get; set; }
+    public DbSet<EmployeeRole> EmployeeRoles { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

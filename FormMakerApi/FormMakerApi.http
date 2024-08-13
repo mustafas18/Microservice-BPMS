@@ -1,0 +1,6 @@
+@FormMakerApi_HostAddress = http://localhost:5115
+
+GET {{FormMakerApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
