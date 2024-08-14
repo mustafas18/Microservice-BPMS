@@ -1,8 +1,17 @@
-﻿namespace Identity.API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Identity.API.Models
 {
-    public class EmployeeRole
+    public class EmployeeRole: BaseEntity
     {
-        public int Id { get; set; }
+        public EmployeeRole()
+        {
+            
+        }
+        public EmployeeRole(int id, string name, Guid tenantId) : base(id, tenantId)
+        {
+            Name= name;
+        }
         public string Name { get; set; }
     }
 }

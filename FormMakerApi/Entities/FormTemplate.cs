@@ -18,11 +18,11 @@ namespace FormMakerApi.Entities
     }
     public class FormComponent
     {
-        public int ElementId { get; private set; }
+        public int Id { get; private set; }
         public string Type { get; private set; }
         public string Label { get; private set; }
-        public List<ElementValue> Values { get; set; }
-        public string? InputValue { get; set; }
+        public List<ElementValue>? Values { get; set; }
+        public ElementValue? InputValue { get; set; }
         public int Order { get; private set; }
         public bool Readonly { get; private set; }
         public string? Tooltip { get; private set; }
