@@ -1,11 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore.Query;
+﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
 
 namespace FormMakerApi.Infrastructure
 {
     public interface IRepository<TEntity> where TEntity : class
     {
-        Task AddAsync(TEntity entity);
+        Task<List<TEntity>> GetAllAsync();
+        Task<TEntity> AddAsync(TEntity entity);
         Task AddRangeAsync(List<TEntity> entities);
         Task<TEntity> UpdateAsync(TEntity entity);
         Task DeleteAsync(TEntity entity);

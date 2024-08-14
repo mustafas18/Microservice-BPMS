@@ -32,6 +32,21 @@ namespace FormMakerApi.Infrastructure
                 {
                     ownedNavigationBuilder.ToJson();
                 });
+
+            IConfigurationBuilder builder = new ConfigurationBuilder();
+            builder.AddJsonFile(Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json"));
+            var root = builder.Build();
+            var tenantId = root.GetValue<string>("TenantId");
+        
+
+            modelBuilder.Entity<FormTemplate>()
+                 .HasQueryFilter(m => m.TenantId == new Guid(tenantId) && m.IsDeleted==false);
+           
+            modelBuilder.Entity<Form>()
+                .HasQueryFilter(m => m.TenantId == new Guid(tenantId) && m.IsDeleted == false);
+
+            modelBuilder.Entity<FormData>()
+                .HasQueryFilter(m => m.TenantId == new Guid(tenantId) && m.IsDeleted == false);
         }
     }
 

@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using System.Collections;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 
 namespace FormMakerApi.Infrastructure
 {
@@ -14,18 +17,29 @@ namespace FormMakerApi.Infrastructure
             _context = context;
         }
 
-        public void Add(TEntity entity)
+        public async Task<List<TEntity>> GetAllAsync()
         {
-            _context.Set<TEntity>().Add(entity);
+           return await _context.Set<TEntity>().AsNoTracking().ToListAsync();
+        }
+        public async Task<TEntity> Add(TEntity entity,bool saveChanges=true)
+        {
+            var  createdEntity= _context.Set<TEntity>().Add(entity);
             _context.SaveChanges();
+            return createdEntity.Entity;  
         }
 
-        public async Task AddAsync(TEntity entity)
+        public async Task<TEntity>  AddAsync(TEntity entity)
         {
-            _context.Set<TEntity>().Add(entity);
+            var createdEntity = await _context.Set<TEntity>().AddAsync(entity);
+            await _context.SaveChangesAsync();
+            return createdEntity.Entity;
+        }
+
+        public async Task AddRangeAsync(List<TEntity> entities)
+        {
+            await _context.AddRangeAsync(entities);
             await _context.SaveChangesAsync();
         }
-
         public async Task DeleteAsync(TEntity entity)
         {
             _context.Remove(entity);
@@ -39,9 +53,9 @@ namespace FormMakerApi.Infrastructure
 
         public async Task<TEntity> UpdateAsync(TEntity entity)
         {
-            _context.Set<TEntity>().Update(entity);
+           var updatedEntity = _context.Set<TEntity>().Update(entity);
             await _context.SaveChangesAsync();
-            return entity;
+            return updatedEntity.Entity;
         }
 
         public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> filter = null,
@@ -89,11 +103,6 @@ namespace FormMakerApi.Infrastructure
             return _context.Set<TEntity>().AsNoTracking();
         }
 
-        public async Task AddRangeAsync(List<TEntity> entities)
-        {
-            await _context.AddRangeAsync(entities);
-            await _context.SaveChangesAsync();
-        }
 
         public async Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> filter = null)
         {

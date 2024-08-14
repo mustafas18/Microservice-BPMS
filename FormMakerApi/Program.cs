@@ -1,4 +1,6 @@
 
+using eShop.ServiceDefaults;
+using FormMakerApi.Apis;
 using FormMakerApi.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
@@ -32,7 +34,10 @@ public class Program
         app.MapDefaultEndpoints();
 
         app.NewVersionedApi("formmaker")
-            .FormApiV1();
+            .MapFormApi()
+            .MapFormTemplateApi()
+            .MapFormDataApi();
+        ;
 
         app.UseDefaultOpenApi();
         app.Run();

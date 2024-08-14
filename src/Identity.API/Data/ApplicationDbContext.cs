@@ -20,6 +20,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         base.OnModelCreating(builder);
 
+
         builder.Entity<EmployeeRole>()
             .HasData(
             new EmployeeRole(1,"CEO", new Guid("abd71ab9-381d-4075-b80e-82639a85f789")),

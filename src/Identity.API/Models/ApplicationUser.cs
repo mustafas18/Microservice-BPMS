@@ -9,7 +9,6 @@ namespace eShop.Identity.API.Models
         public string Name { get; set; }
         [Required]
         public string LastName { get; set; }
-        public Department Department { get; set; }
         public EmployeeRole EmployeeRole { get; set; }
         public Guid TenantId { get; set; }
     }
