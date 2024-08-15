@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option csharp_namespace = "Identity.Api.Proto";
+
+service Identity {
+  rpc GetUserById (AppUserRequest) returns (UserReply);
+}
+
+message AppUserRequest {
+  string userId = 1;
+}
+
+message UserReply {
+  string appUser = 1;
+}

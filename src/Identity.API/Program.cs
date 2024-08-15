@@ -1,6 +1,7 @@
 ﻿using Asp.Versioning;
 using eShop.Identity.API;
 using eShop.ServiceDefaults;
+using Identity.Api.Services;
 using Identity.API.Apis;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -13,6 +14,7 @@ builder.AddServiceDefaults();
 builder.Services.AddScoped<UsersSeed>();
 
 builder.Services.AddControllersWithViews();
+
 
 #if DEBUG
 builder.Services.AddDbContext<IdentityDbContext>(options =>
@@ -74,6 +76,8 @@ builder.Services.AddTransient<IProfileService, ProfileService>();
 builder.Services.AddTransient<ILoginService<ApplicationUser>, EFLoginService>();
 builder.Services.AddTransient<IRedirectService, RedirectService>();
 
+builder.Services.AddGrpc();
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -87,6 +91,9 @@ app.UseCors("myCorsPolicy");
 app.MapDefaultEndpoints();
 
 app.UseStaticFiles();
+
+// Each gRPC service is added to the routing pipeline through the MapGrpcService method.
+app.MapGrpcService<AppIdentityService>();
 
 // This cookie policy fixes login issues with Chrome 80+ using HTTP
 app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.Lax });

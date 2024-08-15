@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceDefaults", "src\Serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormMaker.Api", "src\FormMakerApi\FormMaker.Api.csproj", "{D7F8B451-BD7A-450D-9D74-B56B99E4FBDE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Variables", "src\Variables\Variables.csproj", "{065FA66B-0D0E-46EB-83D5-0D1AC0CAFC5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D7F8B451-BD7A-450D-9D74-B56B99E4FBDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7F8B451-BD7A-450D-9D74-B56B99E4FBDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7F8B451-BD7A-450D-9D74-B56B99E4FBDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{065FA66B-0D0E-46EB-83D5-0D1AC0CAFC5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{065FA66B-0D0E-46EB-83D5-0D1AC0CAFC5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{065FA66B-0D0E-46EB-83D5-0D1AC0CAFC5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{065FA66B-0D0E-46EB-83D5-0D1AC0CAFC5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
