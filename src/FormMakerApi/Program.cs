@@ -14,7 +14,7 @@ public class Program
         ConfigurationManager Configuration = builder.Configuration;
 
         builder.AddServiceDefaults();
-        builder.AddApplicationServices();
+        //builder.AddApplicationServices();
 
 
         #if DEBUG

@@ -1,5 +1,4 @@
-﻿using IdentityApi.Infrastructure.Data;
-using System.Net.Http;
+﻿using System.Net.Http;
 
 namespace Identity.API.Apis
 {

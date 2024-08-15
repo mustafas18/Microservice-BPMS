@@ -23,13 +23,13 @@ public class Program
         builder.AddApplicationServices();
 
 
-        //#if DEBUG
-        //        builder.Services.AddDbContext<AppDbContext>(options =>
-        //         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
-        //#else
-        //            builder.Services.AddDbContext<AppDbContext>(options =>
-        //             options.UseSqlServer(Configuration.GetConnectionString("ReleaseConnectionString")));
-        //#endif
+#if DEBUG
+        builder.Services.AddDbContext<AppDbContext>(options =>
+         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+#else
+                    builder.Services.AddDbContext<AppDbContext>(options =>
+                     options.UseSqlServer(Configuration.GetConnectionString("ReleaseConnectionString")));
+#endif
 
         builder.Services.AddProblemDetails();
         var withApiVersioning = builder.Services.AddApiVersioning();

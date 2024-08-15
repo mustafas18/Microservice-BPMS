@@ -10,13 +10,16 @@ internal class Program
         var builder = DistributedApplication.CreateBuilder(args);
 
 
-        var identityApi = builder.AddProject<Projects.Identity_API>("identity-api", launchProfileName)
+        var identityApi = builder.AddProject<Projects.Identity>("identity-api", launchProfileName)
             .WithExternalHttpEndpoints();
 
         var identityEndpoint = identityApi.GetEndpoint(launchProfileName);
 
-        var bpmsApi = builder.AddProject<Projects.BpmsApi>("bpms-api")
+        var bpmsApi = builder.AddProject<Projects.Bpms>("bpms-api")
             .WithEnvironment("Identity__Url", identityEndpoint);
+
+        var formMaker = builder.AddProject<Projects.FormMaker>("formmaker-api")
+           .WithEnvironment("Identity__Url", identityEndpoint);
         ;
 
         // Identity has a reference to all of the apps for callback urls, this is a cyclic reference

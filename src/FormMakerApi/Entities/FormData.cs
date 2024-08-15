@@ -16,7 +16,7 @@ namespace FormMakerApi.Entities
         public int ComponentnId { get; set; }
         public ComponentValue Value { get; set; }
     }
-    {
+   
     public class ComponentValue
 
     {

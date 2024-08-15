@@ -1,5 +1,7 @@
 ﻿
 
+using eShop.Identity.API.Models;
+
 namespace FormMakerApi.Entities
 {
     public class Form:BaseEntity

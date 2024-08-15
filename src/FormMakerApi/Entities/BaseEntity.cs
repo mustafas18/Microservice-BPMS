@@ -7,7 +7,7 @@ namespace FormMakerApi.Entities
         public int Id { get; set; }
         public DateTime CreatedTime { get; set; }=DateTime.Now;
         public bool IsDeleted { get; protected set; }
-        public Guid TenantId { get;protected set; }
+        public string TenantId { get;protected set; }
         private List<DomainEventBase> _domainEvents = new();
         [NotMapped]
         public IEnumerable<DomainEventBase> DomainEvents => _domainEvents.AsReadOnly();
@@ -16,4 +16,4 @@ namespace FormMakerApi.Entities
         internal void ClearDomainEvents() => _domainEvents.Clear();
     }
 }
-}
+

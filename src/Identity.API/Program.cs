@@ -50,7 +50,7 @@ builder.Services.AddApiVersioning(options =>
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
         .AddEntityFrameworkStores<IdentityDbContext>()
         .AddDefaultTokenProviders();
-
+      ;
 builder.Services.AddIdentityServer(options =>
 {
     //options.IssuerUri = "null";

@@ -1,5 +1,4 @@
 ﻿using Bpms.API.Infrastructure.Services;
-using MediatR;
 using Microsoft.Extensions.Logging;
 
 namespace BpmsApi.Apis

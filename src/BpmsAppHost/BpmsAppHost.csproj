@@ -15,10 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\FormMakerApi\FormMaker.Api.csproj" />
-    <ProjectReference Include="..\BpmsApi\Bpms.Api.csproj" />
-    <ProjectReference Include="..\Identity.API\Identity.Api.csproj" />
-    <ProjectReference Include="..\Variables\Variables.csproj" />
+    <ProjectReference Include="..\FormMakerApi\FormMaker.csproj" />
+    <ProjectReference Include="..\BpmsApi\Bpms.csproj" />
+    <ProjectReference Include="..\Identity.API\Identity.csproj" />
+    <ProjectReference Include="..\Variables\Shared.csproj" />
   </ItemGroup>
 
 </Project>

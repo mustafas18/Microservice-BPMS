@@ -18,7 +18,7 @@ public class UsersSeed(ILogger<UsersSeed> logger, UserManager<ApplicationUser> u
                 LastName = "Smith",
                 Name = "Alice",
                 PhoneNumber = "1234567890",
-                TenantId=new Guid("abd71ab9-381d-4075-b80e-82639a85f789")
+                TenantId="abd71ab9-381d-4075-b80e-82639a85f789"
             };
 
             var result = userManager.CreateAsync(alice, "Pass123$").Result;
@@ -53,7 +53,8 @@ public class UsersSeed(ILogger<UsersSeed> logger, UserManager<ApplicationUser> u
                 Id = Guid.NewGuid().ToString(),
                 LastName = "Smith",
                 Name = "Bob",
-                PhoneNumber = "1234567890"
+                PhoneNumber = "1234567890",
+                TenantId= "abd71ab9-381d-4075-b80e-82639a85f789"
             };
 
             var result = await userManager.CreateAsync(bob, "Pass123$");
