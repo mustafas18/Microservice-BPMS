@@ -10,3 +10,7 @@ The system is structured into four distinct microservices as follows:
 * **Identity Service:** The Identity Service is dedicated to managing user authentication and authorization, ensuring that only authorized individuals have access to specific functionalities and data within the BPMS. It supports a variety of authentication methods and facilitates user registration and profile management, contributing to the overall security of the system.
 
 * **Shared Service:** This microservice acts as a common resource hub for shared functionalities and data that are needed across the other microservices. It includes shared entities such as variables, dtos, common methods and so on.
+
+
+# License
+The repository is licensed under the MIT License, which allows for the utilization of the source code in your projects. However, the author would like to ask you to provide a star rating to the repository before using the source code in your projects.
