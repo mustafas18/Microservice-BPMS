@@ -11,6 +11,15 @@ The system is structured into four distinct microservices as follows:
 
 * **Shared Service:** This microservice acts as a common resource hub for shared functionalities and data that are needed across the other microservices. It includes shared entities such as variables, dtos, common methods and so on.
 
+## Requirements
+* Visual Studio 2022 version 17.10 or newer.
+* .NET 8
+* ASP.NET Core
+* .NET Aspire SDK component
+
+## Running the solution
+1. Clone the repository.
+2. Open the `Bpms.Host.sln` file in Visual Studio
 
 # License
 The repository is licensed under the MIT License, which allows for the utilization of the source code in your projects. However, the author would like to ask you to provide a star rating to the repository before using the source code in your projects.
