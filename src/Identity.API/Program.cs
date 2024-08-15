@@ -15,7 +15,7 @@ builder.Services.AddScoped<UsersSeed>();
 builder.Services.AddControllersWithViews();
 
 #if DEBUG
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<IdentityDbContext>(options =>
  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 #else
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -46,7 +46,7 @@ builder.Services.AddApiVersioning(options =>
 // migrations instead.
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddEntityFrameworkStores<IdentityDbContext>()
         .AddDefaultTokenProviders();
 
 builder.Services.AddIdentityServer(options =>

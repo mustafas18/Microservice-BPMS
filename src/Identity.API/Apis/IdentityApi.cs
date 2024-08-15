@@ -23,6 +23,7 @@ namespace Identity.API.Apis
             // Routes for querying catalog items.
             api.MapPost("/login", Login);
             api.MapGet("/token",  async (HttpContext context) => await context.GetTokenAsync("access_token"));
+            api.MapGet("/getUserById", GetUserById);
 
 
             return api;
@@ -73,6 +74,16 @@ namespace Identity.API.Apis
             return Results.Ok(accessToken);
 
         }
-     
+        public static async Task<IResult> GetUserById(
+         [AsParameters]
+        AuthService service,
+         IHttpClientFactory client,
+         string userId)
+        {
+           var result=await service.UserManager.FindByIdAsync(userId);
+            return Results.Ok(result);
+
+        }
+
     }
 }

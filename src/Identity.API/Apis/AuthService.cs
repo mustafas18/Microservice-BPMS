@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using IdentityApi.Infrastructure.Data;
+using System.Net.Http;
 
 namespace Identity.API.Apis
 {
@@ -8,6 +9,7 @@ namespace Identity.API.Apis
             IConfiguration configuration,
             IEventService events,
         IHttpClientFactory httpClientFactory
+        
         )
     {
         public SignInManager<ApplicationUser> SignInManager { get; } = signInManager;

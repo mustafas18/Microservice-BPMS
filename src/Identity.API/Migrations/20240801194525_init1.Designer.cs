@@ -11,7 +11,7 @@ using eShop.Identity.API.Data;
 
 namespace Identity.API.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(IdentityDbContext))]
     [Migration("20240801194525_init1")]
     partial class init1
     {

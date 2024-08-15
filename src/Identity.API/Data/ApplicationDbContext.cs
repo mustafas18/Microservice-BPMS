@@ -1,5 +1,5 @@
 ﻿using Identity.API.Models;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace eShop.Identity.API.Data;
 
