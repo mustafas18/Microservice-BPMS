@@ -1,3 +1,2 @@
 # Introduction
-A microservice startup templates written using the ASP.NET Core framework. It saves your time and you can focus on your logic rather than infrastructure. By starting with this template, you'll have a solid foundation for building microservices that can be easily modified and scaled as your application grows.
-
+This repository represents a Business Process Management System (BPMS) solution that is architected upon a microservices framework. It is developed in C# utilizing the ASP.NET Core framework and comprises four distinct microservices: BPMS, FormMaker, Identity, and Shared.
