@@ -1,4 +1,6 @@
-﻿namespace Identity.API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Identity.API.Models
 {
     public class BaseEntity
     {

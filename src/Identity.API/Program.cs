@@ -17,7 +17,7 @@ builder.Services.AddControllersWithViews();
 
 
 #if DEBUG
-builder.Services.AddDbContext<IdentityDbContext>(options =>
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 #else
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -48,7 +48,7 @@ builder.Services.AddApiVersioning(options =>
 // migrations instead.
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<IdentityDbContext>()
+        .AddEntityFrameworkStores<ApplicationDbContext>()
         .AddDefaultTokenProviders();
       ;
 builder.Services.AddIdentityServer(options =>
@@ -80,11 +80,11 @@ builder.Services.AddGrpc();
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-    var dbInitializer = scope.ServiceProvider.GetRequiredService<UsersSeed>();
-    await dbInitializer.SeedAsync();
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//    var dbInitializer = scope.ServiceProvider.GetRequiredService<UsersSeed>();
+//    await dbInitializer.SeedAsync();
+//}
 
 app.UseCors("myCorsPolicy");
 
