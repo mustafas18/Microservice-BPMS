@@ -22,20 +22,20 @@ namespace Identity.API.Apis
 
             // Routes for querying catalog items.
             api.MapPost("/login", Login);
-            api.MapGet("/token",  async (HttpContext context) => await context.GetTokenAsync("access_token"));
+            api.MapGet("/token", async (HttpContext context) => await context.GetTokenAsync("access_token"));
             api.MapGet("/getUserById", GetUserById);
 
 
             return api;
         }
         public static async Task<IResult> Login(
-       [AsParameters] 
+       [AsParameters]
         AuthService service,
        IHttpClientFactory client,
        LoginInputModel model)
         {
-           var identityConfig= service.Configuration.GetSection("Identity");
-          var identityUrl =   identityConfig.GetRequiredValue("Url");
+            var identityConfig = service.Configuration.GetSection("Identity");
+            var identityUrl = identityConfig.GetRequiredValue("Url");
 
 
             ///var httpClient = service.HttpClientFactory.CreateClient();
@@ -56,8 +56,8 @@ namespace Identity.API.Apis
                 ClientId = "webapp",
                 ClientSecret = "secret",
                 //Scope = "bpms",
-                UserName ="alice",
-                 Password="Pass123$"
+                UserName = "alice",
+                Password = "Pass123$"
             });
             var accessToken = res.AccessToken;
 
@@ -67,7 +67,7 @@ namespace Identity.API.Apis
             //    var user = await service.UserManager.FindByNameAsync(model.Username);
             //       await service.Events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.UserName));
 
-                
+
             //    return Results.Ok(accessToken);
             //}
 
@@ -76,12 +76,12 @@ namespace Identity.API.Apis
         }
         public static async Task<IResult> GetUserById(
          [AsParameters]
-        AuthService service,
-         IHttpClientFactory client,
-         string userId)
+            AuthService service,
+            IHttpClientFactory client,
+            string userId)
         {
-           var result=await service.UserManager.FindByIdAsync(userId);
-            return Results.Ok(result);
+            var user = await service.UserManager.FindByIdAsync(userId);
+            return Results.Ok(user);
 
         }
 

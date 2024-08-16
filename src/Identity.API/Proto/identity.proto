@@ -2,21 +2,21 @@ syntax = "proto3";
 
 option csharp_namespace = "Identity.Api.Proto";
 
-service Identity {
-	rpc CurrentUserId (UserIdRequest) returns (UserIdResponse);
-  rpc GetUserById (AppUserRequest) returns (UserReply);
+service IdentityGrpc {
+  rpc CurrentUserId (UserIdRequest) returns (UserResponse);
+  rpc GetUserById (AppUserRequest) returns (UserResponse);
 }
 
 message AppUserRequest {
   string userId = 1;
 }
 
-message UserReply {
-  string appUser = 1;
+message UserResponse {
+  string userId = 1;
+  string userName=2;
+  string name=3;
+   string TenantId=4;
 }
 message UserIdRequest {
-  string userId = 1;
-}
-message UserIdResponse {
   string userId = 1;
 }
