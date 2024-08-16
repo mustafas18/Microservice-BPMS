@@ -1,5 +1,6 @@
-﻿using eShop.Identity.API.Models;
+﻿using FormMaker.Entities;
 using FormMakerApi.Entities;
+using Shared.Dtos;
 
 namespace FormMakerApi.Dtos
 {
@@ -7,8 +8,8 @@ namespace FormMakerApi.Dtos
     {
         public string Title { get;  set; }
 
-        public List<FormComponent> Components { get;  set; }
-        public ApplicationUser Creator { get;  set; }
+        public List<FormComponent>? Components { get;  set; }
+        public ApplicationUserDto Creator { get;  set; }
         public int Version { get;  set; }
     }
 }

@@ -16,6 +16,6 @@
         public Guid DepartmentId { get; private set; }
         public string Name { get; private set; }
         public string Culture { get; private set; }
-        public List<ApplicationUser> AppUser { get; private set; }
+       // public List<ApplicationUser> AppUser { get; private set; }
     }
 }

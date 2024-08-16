@@ -1,4 +1,5 @@
-﻿using FormMakerApi.Apis.ApiServices;
+﻿using FormMaker.Dtos;
+using FormMakerApi.Apis.ApiServices;
 using FormMakerApi.Entities;
 
 namespace FormMakerApi.Apis
@@ -20,8 +21,9 @@ namespace FormMakerApi.Apis
         {
             return await services.Repository.FirstOrDefaultAsync(s => s.Id == id);
         }
-        public static async Task<FormData> CreateFormData([AsParameters] FormDataApiService services, FormData formData)
+        public static async Task<FormData> CreateFormData([AsParameters] FormDataApiService services, CreateFormDataDto model)
         {
+            var formData=new FormData(model);
             return await services.Repository.AddAsync(formData);
         }
         public static async Task<FormData> UpdateFormData([AsParameters] FormDataApiService services, FormData formData)

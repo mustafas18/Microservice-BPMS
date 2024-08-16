@@ -1,4 +1,4 @@
-﻿using eShop.Identity.API.Models;
+﻿using FormMaker.Entities;
 using FormMakerApi.Dtos;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore.Update.Internal;
@@ -14,18 +14,19 @@ namespace FormMakerApi.Entities
         }
         public FormTemplate(string title,
                             List<FormComponent> components,
-                            ApplicationUser applicationUser,
-                            int version)
+                            string userId,
+                            int version,
+                            string tenantId) : base(tenantId)
         {
             Title = title;
             Components = components;
-            Creator = applicationUser;
+            CreatorId = userId;
             Version = version;
         }
         public string Title { get; private set; }
 
         public List<FormComponent> Components { get; private set; }
-        public ApplicationUser Creator { get; private set; }
+        public string CreatorId { get; private set; }
         public int Version { get; private set; }
 
         public FormTemplate Update(UpdateFormTemplateDto model)
@@ -38,16 +39,6 @@ namespace FormMakerApi.Entities
            return this;
         }
     }
-    public class FormComponent
-    {
-        public int Id { get; private set; }
-        public string Type { get; private set; }
-        public string Label { get; private set; }
-        public List<ComponentValue>? Values { get; set; }
-        public ComponentValue? InputValue { get; set; }
-        public int Order { get; private set; }
-        public bool Readonly { get; private set; }
-        public string? Tooltip { get; private set; }
-    }
+
  
 }

@@ -1,4 +1,5 @@
-﻿using FormMakerApi.Entities;
+﻿using FormMaker.Entities;
+using FormMakerApi.Entities;
 
 namespace FormMakerApi.Dtos
 {

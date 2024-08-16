@@ -28,7 +28,7 @@ namespace FormMakerApi.Apis
         {
             var template = services.TemplateRepository.AsNoTracking()
                             .FirstOrDefault(s => s.Id == model.TemplateId);
-            var form = new Form(model.BpmId,model.NodeId,new List<eShop.Identity.API.Models.ApplicationUser>(), template);
+            var form = new Form(model.BpmId,model.NodeId,model.AssigneesIds, template,model.tenantId);
             return await services.Repository.AddAsync(form);
         }
         public static async Task<Form> UpdateForm([AsParameters] FormApiService services, Form form)

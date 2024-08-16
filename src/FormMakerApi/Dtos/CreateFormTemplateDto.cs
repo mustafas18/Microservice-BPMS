@@ -1,4 +1,4 @@
-﻿using eShop.Identity.API.Models;
+﻿using FormMaker.Entities;
 using FormMakerApi.Entities;
 
 namespace FormMakerApi.Dtos

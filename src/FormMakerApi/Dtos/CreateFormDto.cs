@@ -1,5 +1,4 @@
-﻿using eShop.Identity.API.Models;
-using FormMakerApi.Entities;
+﻿using FormMakerApi.Entities;
 
 namespace FormMakerApi.Dtos
 {
@@ -7,7 +6,8 @@ namespace FormMakerApi.Dtos
     {
         public int BpmId { get; set; }
         public int NodeId { get; set; }
-        public List<string> Assignees { get; set; }
+        public List<string> AssigneesIds { get; set; }
         public int TemplateId { get; set; }
+        public string tenantId { get; set; }
     }
 }
