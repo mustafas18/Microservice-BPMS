@@ -8,7 +8,7 @@ namespace FormMaker.Entities
         public FormComponent() { }
         [Required]
         public int Id { get; set; }
-        public string Type { get;  set; }
+        public ComponentTypeEnum Type { get;  set; }
         public string Label { get;  set; }
         public List<ComponentValue>? Values { get; set; }
         public ComponentValue? InputValue { get; set; }

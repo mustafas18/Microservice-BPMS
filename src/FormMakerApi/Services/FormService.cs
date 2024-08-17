@@ -6,7 +6,7 @@ using System.Data;
 
 namespace FormMakerApi.Services
 {
-    public class FormService
+    public class FormService: IFormService
     {
         private readonly IRepository<FormData> _formdataRepository;
         private readonly IRepository<Form> _formRepository;

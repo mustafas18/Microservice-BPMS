@@ -1,8 +1,9 @@
-﻿using Bpms.Services.Identity;
-using eShop.ServiceDefaults;
+﻿using eShop.ServiceDefaults;
+using FormMakerApi.Infrastructure;
+using FormMakerApi.Services;
 using System.Security.Principal;
 
-namespace BpmsApi.Extensions
+namespace FormMaker.Extensions
 {
     public static class Extensions
     {
@@ -11,7 +12,9 @@ namespace BpmsApi.Extensions
 
             builder.AddDefaultAuthentication();
 
-            builder.Services.AddSingleton<IIdentityService, IdentityService>();
+            builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+            builder.Services.AddScoped<IFormService, FormService>();
+
 
             builder.Services.AddHttpContextAccessor();
         }

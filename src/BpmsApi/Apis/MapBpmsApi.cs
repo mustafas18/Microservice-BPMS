@@ -1,6 +1,4 @@
-﻿using Bpms.API.Infrastructure.Services;
-using BpmsApi.Services;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +13,6 @@ namespace BpmsApi.Apis
                 .HasApiVersion(1.0);
 
             // Routes for querying catalog items.
-            api.MapGet("/15days", Get15DaysForcast);
             ;
             //api.MapGet("/items/by", GetItemsByIds);
             //api.MapGet("/items/{id:int}", GetItemById);
@@ -41,10 +38,7 @@ namespace BpmsApi.Apis
         }
 
 
-        public static List<string> Get15DaysForcast([AsParameters] WeatherForcast services)
-        {
-            return services.Forcast15Days();
-        }
+ 
       
 
         public static string GetIdentity([AsParameters] BpmsServices services)

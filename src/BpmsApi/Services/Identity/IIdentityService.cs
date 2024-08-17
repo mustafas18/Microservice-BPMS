@@ -1,4 +1,4 @@
-﻿namespace Bpms.API.Infrastructure.Services;
+﻿namespace Bpms.Services.Identity;
 
 public interface IIdentityService
 {

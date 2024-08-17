@@ -5,14 +5,14 @@ using FormMaker.Enums;
 
 namespace FormMakerApi.Entities
 {
-    public class Form:BaseEntity
+    public class Form : BaseEntity
     {
         public Form() { }
         public Form(int bpmId,
                     int nodeId,
                     List<string> assignees,
                     FormTemplate template,
-                    string tenantId):base(tenantId)
+                    string tenantId) : base(tenantId)
         {
             BpmId = bpmId;
             NodeId = nodeId;

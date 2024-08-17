@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Identity\" />
+    <Folder Include="Services\Identity\" />
   </ItemGroup>
 
   <PropertyGroup>

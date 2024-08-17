@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 
-namespace Bpms.API.Infrastructure.Services;
+namespace Bpms.Services.Identity;
 
 public class IdentityService(IHttpContextAccessor context) : IIdentityService
 {

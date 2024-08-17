@@ -1,4 +1,4 @@
-﻿using Bpms.API.Infrastructure.Services;
+﻿using Bpms.Services.Identity;
 using Microsoft.Extensions.Logging;
 
 namespace BpmsApi.Apis

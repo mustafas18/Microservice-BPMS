@@ -1,5 +1,5 @@
-
 using eShop.ServiceDefaults;
+using FormMaker.Extensions;
 using FormMakerApi.Apis;
 using FormMakerApi.Infrastructure;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +14,7 @@ public class Program
         ConfigurationManager Configuration = builder.Configuration;
 
         builder.AddServiceDefaults();
-        //builder.AddApplicationServices();
+        builder.AddApplicationServices();
 
 
         #if DEBUG
@@ -33,11 +33,14 @@ public class Program
 
         app.MapDefaultEndpoints();
 
-        app.NewVersionedApi("formmaker")
-            .MapFormApi()
-            .MapFormTemplateApi()
+        app.NewVersionedApi("Form Template")
+            .MapFormTemplateApi();
+
+        app.NewVersionedApi("Form")
+            .MapFormApi();
+
+        app.NewVersionedApi("FormData")
             .MapFormDataApi();
-        ;
 
         app.UseDefaultOpenApi();
         app.Run();
