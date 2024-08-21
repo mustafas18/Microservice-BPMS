@@ -9,5 +9,6 @@
         Dropdown,
         TextArea,
         FileInput,
+        DatePicker
     }
 }

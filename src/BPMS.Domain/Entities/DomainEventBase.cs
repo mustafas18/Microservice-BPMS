@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace BpmsApi.Entities
+namespace BpmsDomain.Entities
 {
     public class DomainEventBase: INotification
         {

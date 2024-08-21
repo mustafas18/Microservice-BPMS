@@ -1,6 +1,6 @@
 ﻿namespace BpmsApi.Enums
 {
-    public enum GatewayConvergingDiverging
+    public enum GatewayConvergingDiverging : byte
     {
         None = 0,
         Converging,

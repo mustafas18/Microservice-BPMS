@@ -1,7 +1,7 @@
 ﻿using BpmsApi.Enums;
 
 
-namespace BpmsApi.Entities
+namespace BpmsDomain.Entities
 {
 	public class Node : BaseEntity
 	{

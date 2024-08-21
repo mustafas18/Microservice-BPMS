@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace BpmsApi.Entities
+namespace BpmsDomain.Entities
 {
     public class Workflow:BaseEntity
     {
