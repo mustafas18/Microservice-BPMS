@@ -28,12 +28,8 @@ namespace FormMakerApi.Apis
         }
         public static async Task<FormTemplate> CreateFormTemplate([AsParameters] FormTemplateApiService services, CreateFormTemplateDto model)
         {
-
-            // TODO: get user from IdentityApi
-            //var creator =
-            //var formTemplate = new FormTemplate(model.Title, model.Components,, model.version);
-            //return await services.Repository.AddAsync(formTemplate);
-            throw new NotImplementedException();
+            var formTemplate = new FormTemplate(model.Title, model.Components, model.CreatorId, 1,model.TenantId);
+            return await services.Repository.AddAsync(formTemplate);
         }
         public static async Task<FormTemplate> UpdateFormTemplate([AsParameters] FormTemplateApiService services, UpdateFormTemplateDto model)
         {

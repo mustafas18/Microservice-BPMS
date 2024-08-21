@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FormMakerApi\FormMaker.csproj" />
-    <ProjectReference Include="..\BpmsApi\Bpms.csproj" />
+    <ProjectReference Include="..\BpmsApi\Bpms.api.csproj" />
     <ProjectReference Include="..\Identity.API\Identity.csproj" />
     <ProjectReference Include="..\Variables\Shared.csproj" />
   </ItemGroup>

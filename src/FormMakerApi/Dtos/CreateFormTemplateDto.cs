@@ -8,5 +8,6 @@ namespace FormMakerApi.Dtos
         public string Title { get; set; }
         public List<FormComponent> Components { get;  set; }
         public string CreatorId { get;  set; }
+        public string TenantId { get; set; }
     }
 }

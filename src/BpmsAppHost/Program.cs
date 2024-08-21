@@ -15,7 +15,7 @@ internal class Program
 
         var identityEndpoint = identityApi.GetEndpoint(launchProfileName);
 
-        var bpmsApi = builder.AddProject<Projects.Bpms>("bpms-api")
+        var bpmsApi = builder.AddProject<Projects.Bpms_api>("bpms-api")
             .WithEnvironment("Identity__Url", identityEndpoint);
 
         var formMaker = builder.AddProject<Projects.FormMaker>("formmaker-api")

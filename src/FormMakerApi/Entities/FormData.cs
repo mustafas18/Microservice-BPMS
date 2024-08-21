@@ -35,6 +35,10 @@ namespace FormMakerApi.Entities
             ComponentDatas.AddRange(data);
             return ComponentDatas;
         }
+        public void Remove(ComponentData data)
+        {
+            ComponentDatas.Remove(data);
+        }
         public bool RemoveComponents()
         {
             ComponentDatas.Clear();

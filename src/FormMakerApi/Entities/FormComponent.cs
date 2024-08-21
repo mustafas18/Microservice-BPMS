@@ -1,4 +1,5 @@
-﻿using FormMakerApi.Entities;
+﻿using FormMaker.Enums;
+using FormMakerApi.Entities;
 using System.ComponentModel.DataAnnotations;
 
 namespace FormMaker.Entities
