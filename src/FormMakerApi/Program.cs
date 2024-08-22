@@ -1,4 +1,4 @@
-using eShop.ServiceDefaults;
+using Bpms.ServiceDefaults;
 using FormMaker.Extensions;
 using FormMakerApi.Apis;
 using FormMakerApi.Infrastructure;

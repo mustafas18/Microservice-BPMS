@@ -1,5 +1,5 @@
 ﻿using Bpms.Services.Identity;
-using eShop.ServiceDefaults;
+using Bpms.ServiceDefaults;
 using System.Security.Principal;
 
 namespace BpmsApi.Extensions

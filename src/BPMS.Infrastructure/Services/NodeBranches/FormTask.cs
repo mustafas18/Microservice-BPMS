@@ -3,25 +3,53 @@
 using BPMS.Infrastructure.Services;
 using BpmsApi.Enums;
 using BpmsDomain.Entities;
+using BPMSDomain.Interfaces;
 using BPMSWebApp.Dtos;
+using MediatR;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BPMSInfrastructure.Services.NodeBranches
 {
-    public class FormTask: NodeBranchService
+    public class FormTask : NodeBranchService
     {
+        private readonly IRepository<Node> nodeRepository;
+        private readonly IMediator mediator;
+
+        public FormTask(IRepository<Node> nodeRepository, IMediator mediator) : base(nodeRepository, mediator)
+        {
+            this.nodeRepository = nodeRepository;
+            this.mediator = mediator;
+        }
+
         public override bool IsMatch(Node node)
         {
             return node.NodeType == NodeTypeEnum.ManualTask;
         }
 
-        public override NodeRunnerResult Execute(Node node)
+
+        public override NodeRunResult Execute(Node node)
         {
-            Console.WriteLine(nameof(FormTask));
-            return new NodeRunnerResult(node.Id, node.NextNodes, true);
+            if (!node.Assignees.IsNullOrEmpty())
+            {
+                foreach (var assignee in node.Assignees)
+                {
+                    // add manual task
+                }
+            }
+            return new NodeRunResult(node.Id, node.NextNodes, false);
         }
-        public void SubmitTask()
+        public NodeRunResult Submit(Node node)
         {
-            throw new NotImplementedException();
+            if (!node.Assignees.IsNullOrEmpty())
+            {
+                foreach (var assignee in node.Assignees)
+                {
+                    //TODO: if a assignee does not submit the form
+                    //return new NodeRunResult(node.Id, node.NextNodes, false);
+                }
+            }
+
+            return new NodeRunResult(node.Id, node.NextNodes, true);
         }
     }
 }

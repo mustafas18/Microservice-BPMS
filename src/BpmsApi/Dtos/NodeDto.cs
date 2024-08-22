@@ -1,5 +1,5 @@
-﻿using BpmsApi.Entities;
-using BpmsApi.Enums;
+﻿using BpmsApi.Enums;
+using BpmsDomain.Entities;
 
 namespace BpmsApi.Dtos
 {

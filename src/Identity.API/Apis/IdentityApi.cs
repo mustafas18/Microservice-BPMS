@@ -1,6 +1,6 @@
 ﻿using Azure.Core;
 using eShop.Identity.API.Models.AccountViewModels;
-using eShop.ServiceDefaults;
+using Bpms.ServiceDefaults;
 using IdentityModel.Client;
 using IdentityServerHost.Quickstart.UI;
 using Microsoft.AspNetCore.Http;

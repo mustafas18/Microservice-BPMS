@@ -1,0 +1,29 @@
+﻿using BpmsDomain.Entities;
+using System.Runtime.CompilerServices;
+
+namespace BPMSWebApp.Dtos
+{
+    public class NodeRunResult
+    {
+        public NodeRunResult()
+        {
+            
+        }
+        /// <summary>
+        /// NodeRunnerResult
+        /// </summary>
+        /// <param name="NodeId">NodeId</param>
+        /// <param name="nextNodes">NexNode</param>
+        /// <param name="goNextNode">is done and go to next nodes</param>
+        public NodeRunResult(int NodeId,List<NextNode>? nextNodes,bool goNextNode)
+        {
+            this.NodeId = NodeId;
+            NextNodes = nextNodes;
+            GoNextNode = goNextNode;
+        }
+
+        public int NodeId { get; }
+        public List<NextNode>? NextNodes { get; }
+        public bool GoNextNode { get; set; } 
+    }
+}

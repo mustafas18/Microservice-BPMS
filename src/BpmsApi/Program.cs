@@ -1,8 +1,8 @@
 
 using BpmsApi.Apis;
 using BpmsApi.Extensions;
-using BpmsApi.Infrastructure;
-using eShop.ServiceDefaults;
+using BPMS.Infrastructure;
+using Bpms.ServiceDefaults;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
@@ -24,7 +24,7 @@ public class Program
 
 
 #if DEBUG
-        builder.Services.AddDbContext<AppDbContext>(options =>
+        builder.Services.AddDbContext<BpmsDbContext>(options =>
          options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 #else
                     builder.Services.AddDbContext<AppDbContext>(options =>
@@ -32,6 +32,14 @@ public class Program
 #endif
 
         builder.Services.AddProblemDetails();
+
+        builder.Services.AddHttpContextAccessor();
+       // builder.Services.AddAutoMapper(typeof(Program));
+
+        builder.Services.AddMediatR(cfg => {
+            cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
+        });
+
         var withApiVersioning = builder.Services.AddApiVersioning();
         builder.AddDefaultOpenApi(withApiVersioning);
 

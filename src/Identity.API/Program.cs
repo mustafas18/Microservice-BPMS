@@ -1,6 +1,6 @@
 ﻿using Asp.Versioning;
 using eShop.Identity.API;
-using eShop.ServiceDefaults;
+using Bpms.ServiceDefaults;
 using Identity.Api.Services;
 using Identity.API.Apis;
 using Microsoft.Extensions.Configuration;

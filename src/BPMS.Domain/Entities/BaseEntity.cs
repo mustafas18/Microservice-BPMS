@@ -3,10 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BpmsDomain.Entities
 {
-    public class BaseEntity
+    public class BaseEntity<T> where T : struct
     {
+        public BaseEntity()
+        {
+                
+        }
         [Required]
-        public int Id { get; set; }
+        public T Id { get; set; }
         public bool IsDeleted { get;protected set; }
         public Guid TenantId { get; protected set; }
         private List<DomainEventBase> _domainEvents = new();

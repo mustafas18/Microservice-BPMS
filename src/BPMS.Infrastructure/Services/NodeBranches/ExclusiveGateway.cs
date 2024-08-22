@@ -5,6 +5,7 @@ using BpmsApi.Enums;
 using BpmsDomain.Entities;
 using BPMSDomain.Interfaces;
 using BPMSWebApp.Dtos;
+using System.Xml.Linq;
 
 namespace BPMSInfrastructure.Services.NodeBranches
 {
@@ -20,18 +21,19 @@ namespace BPMSInfrastructure.Services.NodeBranches
             return (node.NodeType == NodeTypeEnum.ExclusiveDivergingGateway || node.NodeType == NodeTypeEnum.ExclusiveConvergingGateway);
         }
 
-        public override NodeRunnerResult Execute(Node node)
+        public override NodeRunResult Execute(Node node)
         {
             Console.WriteLine(nameof(ExclusiveGateway));
             if (node.NextNodes != null)
             {
                 foreach (var nextNode in node.NextNodes)
                 {
-                    if (_evaluateGatwayCondition.Evaluate(nextNode.NodeCondition, "x=y"))
+                    if (_evaluateGatwayCondition.Evaluate(nextNode.Condition,node.FormId))
                     {
-                        return new NodeRunnerResult(node.Id,new List<Node> { nextNode }, true);
+                        return new NodeRunResult(node.Id, node.NextNodes, true);
                     }
                 }
+                return new NodeRunResult(node.Id, node.NextNodes, false);
             }
 
             return null;

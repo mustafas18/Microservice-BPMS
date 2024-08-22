@@ -44,6 +44,10 @@ namespace FormMakerApi.Entities
             ComponentDatas.Clear();
             return ComponentDatas.Any();
         }
+        public bool IsDone()
+        {
+            return DoneDate.HasValue;
+        }
     }
 
     public class ComponentData

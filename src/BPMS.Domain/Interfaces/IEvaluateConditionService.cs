@@ -2,6 +2,6 @@
 {
     public interface IEvaluateConditionService
     {
-        bool Evaluate(string nodeCondition,string actualCondition);
+        bool Evaluate(string nodeCondition,int formDataId);
     }
 }

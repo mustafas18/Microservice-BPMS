@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System;
 
-namespace eShop.ServiceDefaults;
+namespace Bpms.ServiceDefaults;
 
 public static class HttpClientExtensions
 {

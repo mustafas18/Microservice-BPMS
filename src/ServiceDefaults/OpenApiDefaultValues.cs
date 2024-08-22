@@ -6,7 +6,7 @@ using System;
 using System.Linq;
 using System.Text.Json;
 
-namespace eShop.ServiceDefaults;
+namespace Bpms.ServiceDefaults;
 
 internal sealed class OpenApiDefaultValues : IOperationFilter
 {

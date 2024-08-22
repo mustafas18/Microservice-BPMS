@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace eShop.ServiceDefaults;
+namespace Bpms.ServiceDefaults;
 
 public static class ClaimsPrincipalExtensions
 {

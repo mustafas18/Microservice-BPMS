@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using BPMSDomain.Interfaces;
 
-namespace BPMSDomain.Infrastructure
+namespace BPMS.Infrastructure
 {
     public class Repository<TEntity>:IRepository<TEntity> where TEntity:class
     {

@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 
-namespace eShop.ServiceDefaults;
+namespace Bpms.ServiceDefaults;
 
 public static partial class Extensions
 {

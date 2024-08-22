@@ -7,7 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using ServiceDefaults;
 using System.Text;
 
-namespace eShop.ServiceDefaults;
+namespace Bpms.ServiceDefaults;
 
 public static class AuthenticationExtensions
 {

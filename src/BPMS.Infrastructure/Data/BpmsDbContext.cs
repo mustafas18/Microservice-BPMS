@@ -1,25 +1,28 @@
-﻿using BpmsDomain.Entities;
+﻿using BPMS.Domain.Entities;
+using BpmsDomain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection.Emit;
 
-namespace BPMSDomain.Infrastructure
+namespace BPMS.Infrastructure
 {
-    public class FormDbContext: DbContext
+    public class BpmsDbContext: DbContext
     {
-        public FormDbContext()
+        public BpmsDbContext()
         {
 
         }
-        public FormDbContext(DbContextOptions<FormDbContext> options) : base(options)
+        public BpmsDbContext(DbContextOptions<BpmsDbContext> options) : base(options)
         {
         }
 
 
         public DbSet<Node> Nodes { get; set; }
+        public DbSet<NextNode> NextNodes { get; set; }
         public DbSet<Workflow> Workflows { get; set; }
-            
+        public DbSet<WorkflowTemplate> WorkflowTemplates { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
            
@@ -27,7 +30,7 @@ namespace BPMSDomain.Infrastructure
             modelBuilder.Entity<Node>()
                 .HasQueryFilter(m =>  m.IsDeleted == false);
 
-            modelBuilder.Entity<Workflow>()
+            modelBuilder.Entity<WorkflowTemplate>()
                 .HasQueryFilter(m =>  m.IsDeleted == false);
 
           

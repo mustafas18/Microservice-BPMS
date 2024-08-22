@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace eShop.ServiceDefaults;
+namespace Bpms.ServiceDefaults;
 
 public static partial class Extensions
 {

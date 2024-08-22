@@ -3,7 +3,7 @@
 
 namespace BpmsDomain.Entities
 {
-	public class Node : BaseEntity
+	public class Node : BaseEntity<int>
 	{
 		public Node() { }
 		public string Title { get; private set; }
@@ -11,7 +11,7 @@ namespace BpmsDomain.Entities
 		public NodeTypeEnum NodeType { get; private set; }
 		public int WorkflowId { get; private set; }
 		public List<NextNode> NextNodes { get; private set; }
-		public string UserPostIds { get; private set; }
+		public List<string> Assignees { get; private set; }
 		public int FormId { get; private set; }
 		public List<FormElementVariableMapper> FormVariableMapper { get; private set; }
 		public DateTime TaskOverdue { get; private set; }
@@ -26,13 +26,17 @@ namespace BpmsDomain.Entities
 		public int Height { get; private set; }
 		public int PoolId { get; private set; }
 		public string PositionInPool { get; private set; }
+        public void SetConectionAndCondition(List<NextNode> nextNodes)
+        {
+			NextNodes = nextNodes;
+        }
+    }
+    public class NextNode
+    {
+        public int NodeId { get; set; }
+        public string Condition { get; set; }
 
-	}
-	public class NextNode
-	{
-		public int NodeId { get; set; }
-		public string Connection { get; set; }
-	}
+    }
     public class FormElementVariableMapper
     {
         public int FormTemplateId { get; set; }
