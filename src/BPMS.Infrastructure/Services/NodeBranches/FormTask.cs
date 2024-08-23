@@ -14,11 +14,14 @@ namespace BPMSInfrastructure.Services.NodeBranches
     {
         private readonly IRepository<Node> nodeRepository;
         private readonly IMediator mediator;
+        private readonly HttpClient httpClient;
 
-        public FormTask(IRepository<Node> nodeRepository, IMediator mediator) : base(nodeRepository, mediator)
+        public FormTask(IRepository<Node> nodeRepository, IMediator mediator,
+            HttpClient httpClient) : base(nodeRepository, mediator)
         {
             this.nodeRepository = nodeRepository;
             this.mediator = mediator;
+            this.httpClient = httpClient;
         }
 
         public override bool IsMatch(Node node)
@@ -33,7 +36,8 @@ namespace BPMSInfrastructure.Services.NodeBranches
             {
                 foreach (var assignee in node.Assignees)
                 {
-                    // add manual task
+                    // add formData
+                    // create formData
                 }
             }
             return new NodeRunResult(node.Id, node.NextNodes, false);
@@ -42,10 +46,14 @@ namespace BPMSInfrastructure.Services.NodeBranches
         {
             if (!node.Assignees.IsNullOrEmpty())
             {
+                //TODO: if a assignee does not submit the form
+                // update formData
+                // update variables via form outputvariable
+
                 foreach (var assignee in node.Assignees)
                 {
-                    //TODO: if a assignee does not submit the form
-                    //return new NodeRunResult(node.Id, node.NextNodes, false);
+                    // if not submit exists
+                        //return new NodeRunResult(node.Id, node.NextNodes, false);
                 }
             }
 

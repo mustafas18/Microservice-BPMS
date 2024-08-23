@@ -23,6 +23,7 @@ namespace FormMakerApi.Apis
         }
         public static async Task<FormData> CreateFormData([AsParameters] FormDataApiService services, CreateFormDataDto model)
         {
+            model.ComponentDatas=services.FormRepository.FirstOrDefault(s=>s.Id==model.FormId)?.ComponentDatas;
             var formData=new FormData(model);
             return await services.Repository.AddAsync(formData);
         }

@@ -9,8 +9,8 @@ namespace FormMaker.Entities
         public FormComponent() { }
         [Required]
         public int Id { get; set; }
-        public ComponentTypeEnum Type { get;  set; }
-        public string Label { get;  set; }
+        public ComponentTypeEnum Type { get; set; }
+        public string Label { get; set; }
         public List<ComponentValue>? Values { get; set; }
         public ComponentValue? InputValue { get; set; }
         public int Order { get;  set; }
@@ -23,6 +23,7 @@ namespace FormMaker.Entities
         public int ComponentId { get; set; }
         public string? Label { get; set; }
         public string? Value { get; set; }
+
     }
 
 }

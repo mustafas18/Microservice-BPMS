@@ -54,6 +54,8 @@ namespace FormMakerApi.Entities
     {
         public int ComponentnId { get; set; }
         public ComponentValue Value { get; set; }
+        // save value in a variable
+        public string? OutputVariable { get; set; }
     }
 
 

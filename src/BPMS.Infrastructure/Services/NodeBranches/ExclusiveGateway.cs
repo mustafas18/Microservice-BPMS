@@ -36,7 +36,7 @@ namespace BPMSInfrastructure.Services.NodeBranches
                 return new NodeRunResult(node.Id, node.NextNodes, false);
             }
 
-            return null;
+            return new NodeRunResult(node.Id, node.NextNodes, false);
         }
     }
 }
