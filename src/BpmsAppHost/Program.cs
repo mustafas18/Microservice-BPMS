@@ -22,6 +22,10 @@ internal class Program
            .WithEnvironment("Identity__Url", identityEndpoint);
         ;
 
+        var Variables = builder.AddProject<Projects.Variables_Api>("variables-api")
+                .WithEnvironment("Identity__Url", identityEndpoint);
+        ;
+
         // Identity has a reference to all of the apps for callback urls, this is a cyclic reference
         identityApi.WithEnvironment("bpms-api", bpmsApi.GetEndpoint("http"));
         //          .WithEnvironment("bpms-api", bpmsApi.GetEndpoint("http"));

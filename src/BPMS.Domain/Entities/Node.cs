@@ -13,7 +13,6 @@ namespace BpmsDomain.Entities
 		public List<NextNode> NextNodes { get; private set; }
 		public List<string> Assignees { get; private set; }
 		public int FormId { get; private set; }
-		public List<FormElementVariableMapper> FormVariableMapper { get; private set; }
 		public DateTime TaskOverdue { get; private set; }
 		public int ScriptId { get; private set; }
 		public int EmailId { get; private set; }
@@ -35,14 +34,6 @@ namespace BpmsDomain.Entities
     {
         public int NodeId { get; set; }
         public string Condition { get; set; }
-
-    }
-    public class FormElementVariableMapper
-    {
-        public int FormTemplateId { get; set; }
-        public int FormElementId { get; set; }
-        public int InputVariableId { get; set; }
-        public int OutputVariableId { get; set; }
 
     }
 }

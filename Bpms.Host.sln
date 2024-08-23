@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BPMS.Infrastructure", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BPMS.Domain", "src\BPMS.Domain\BPMS.Domain.csproj", "{B099594A-A9C6-4EAC-98CC-A322D63CC0C3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Variables.Api", "src\Variables.Api\Variables.Api.csproj", "{2ED5AF4D-22FA-47A7-B636-170D2B60503B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{B099594A-A9C6-4EAC-98CC-A322D63CC0C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B099594A-A9C6-4EAC-98CC-A322D63CC0C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B099594A-A9C6-4EAC-98CC-A322D63CC0C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ED5AF4D-22FA-47A7-B636-170D2B60503B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ED5AF4D-22FA-47A7-B636-170D2B60503B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ED5AF4D-22FA-47A7-B636-170D2B60503B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ED5AF4D-22FA-47A7-B636-170D2B60503B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +87,7 @@ Global
 		{6A64FDAE-0753-413D-8B61-07BB7AF6A111} = {5E82305E-E358-411F-BAE0-56DC60949F6B}
 		{F75BDEE5-5125-4767-84DE-63D226A04971} = {C24D2472-E3D9-40CC-A58E-DEC639694BB6}
 		{B099594A-A9C6-4EAC-98CC-A322D63CC0C3} = {C24D2472-E3D9-40CC-A58E-DEC639694BB6}
+		{2ED5AF4D-22FA-47A7-B636-170D2B60503B} = {C24D2472-E3D9-40CC-A58E-DEC639694BB6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A68BE3F6-D116-4348-A239-0895DFBBE61A}
