@@ -2,6 +2,7 @@
 using Bpms.ServiceDefaults;
 using BpmsVariables.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Variables.Api.Api;
 using Variables.Extensions;
 
 namespace Variables.Api;

@@ -36,6 +36,9 @@ namespace BPMSInfrastructure.Services.NodeBranches
         {
             
         }
+
+       
+
         public override bool IsMatch(Node node)
         {
             return node.NodeType == NodeTypeEnum.EndEvent;

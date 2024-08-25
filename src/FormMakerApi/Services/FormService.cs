@@ -1,11 +1,8 @@
 ﻿using FormMakerApi.Entities;
 using FormMakerApi.Infrastructure;
-using Grpc.Net.Client;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Data;
 using static System.Net.Mime.MediaTypeNames;
 using System.Text.RegularExpressions;
-using Microsoft.IdentityModel.Tokens;
 using Shared.Extensions;
 
 namespace FormMakerApi.Services
@@ -15,7 +12,6 @@ namespace FormMakerApi.Services
         private readonly IRepository<FormData> _formdataRepository;
         private readonly IRepository<Form> _formRepository;
         private readonly IRepository<FormTemplate> _templateRepository;
-        private GrpcChannel _channel;
         public FormService(IRepository<FormData> formdataRepository,
             IRepository<Form> formRepository,
             IRepository<FormTemplate> templateRepository)
@@ -45,7 +41,7 @@ namespace FormMakerApi.Services
             foreach (var data in datas)
             {
                 var value = data.Value.Value;
-                if (!value.IsNullOrEmpty())
+                if (value!=null && value!="")
                 {
                     while (Regex.IsMatch(value, @"@@(.*?)@@"))
                     {

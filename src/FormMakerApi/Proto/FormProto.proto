@@ -2,13 +2,14 @@ syntax = "proto3";
 
 option csharp_namespace = "Bpms.Domain.Proto";
 
-service IdentityGrpc {
+service FormServiceGrpc {
   rpc CreateFormData (GrpcRequest) returns (ClientResponse);
 }
 
 message GrpcRequest {
-  int FormId = 1;
-  int nodeId = 2;
+  int32 FormId = 1;
+  int32 nodeId = 2;
+  string assigneeId = 3;
 }
 
 message ClientResponse {

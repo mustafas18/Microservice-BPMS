@@ -18,18 +18,17 @@ namespace BPMSInfrastructure.Services.NodeBranches
         private readonly IMediator mediator;
         private readonly IRepository<WorkflowHistory> _workflowHistoryRepository;
         private readonly IRepository<WorkflowFlow> _workflowFlowRepository;
-        private readonly HttpClient httpClient;
 
-        public FormTask(IRepository<Node> nodeRepository, IMediator mediator,
+
+        public FormTask(IRepository<Node> nodeRepository, 
             IRepository<WorkflowHistory> workflowHistoryRepository,
             IRepository<WorkflowFlow> workflowFlowRepository,
-            HttpClient httpClient) : base(nodeRepository, mediator)
+            IMediator mediator) : base(nodeRepository, mediator)
         {
             this.nodeRepository = nodeRepository;
             this.mediator = mediator;
             _workflowHistoryRepository = workflowHistoryRepository;
             _workflowFlowRepository = workflowFlowRepository;
-            this.httpClient = httpClient;
         }
 
         public override bool IsMatch(Node node)

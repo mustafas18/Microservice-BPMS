@@ -12,7 +12,6 @@ namespace BpmsApi.Dtos
         public List<NextNode> NextNodes { get; private set; }
         public string UserPostIds { get; private set; }
         public int FormId { get; private set; }
-        public List<FormElementVariableMapper> FormVariableMapper { get; private set; }
         public DateTime TaskOverdue { get; private set; }
         public int ScriptId { get; private set; }
         public int EmailId { get; private set; }
