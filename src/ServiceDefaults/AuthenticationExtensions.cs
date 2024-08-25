@@ -40,7 +40,7 @@ public static class AuthenticationExtensions
             var audience = identitySection.GetRequiredValue("Audience");
             options.Authority = identityUrl;
             options.RequireHttpsMetadata = false;
-        options.Audience = audience;
+            options.Audience = audience;
 
             options.TokenValidationParameters = new TokenValidationParameters
             {

@@ -1,7 +1,6 @@
 ﻿using BPMS.Domain.Entities;
 using BPMS.Domain.Enums;
 using BPMS.Domain.Events;
-using BPMS.Domain.Interfaces;
 using BPMS.Infrastructure.Services;
 using BpmsDomain.Entities;
 using BPMSDomain.Interfaces;
@@ -12,10 +11,10 @@ namespace Bpms.Api.Application.EventHandlers
 {
     public class NodeRanEventHandler : INotificationHandler<NodeRanEvent>
     {
-        private readonly INodeBranchService _nodeBranchService;
+        private readonly NodeBranchService _nodeBranchService;
         private readonly IRepository<WorkflowFlow> _flowRepository;
 
-        public NodeRanEventHandler(INodeBranchService nodeBranchService,
+        public NodeRanEventHandler(NodeBranchService nodeBranchService,
             IRepository<WorkflowFlow> flowRepository)
         {
             _nodeBranchService = nodeBranchService;

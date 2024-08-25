@@ -33,7 +33,7 @@ namespace BPMSInfrastructure.Services.NodeBranches
 
         public override async  Task<NodeRunResult> Execute(Node node)
         {
-            await _workflowHistoryRepository.AddAsync(new WorkflowHistory(node.WorkflowId, node.Id, null, DateTime.Now, WorkflowStatusEnum.NotStarted));
+            await _workflowHistoryRepository.AddAsync(new WorkflowHistory(node.WorkflowId, node.Id, null, null, DateTime.Now, WorkflowStatusEnum.NotStarted));
             if (node.NextNodes != null)
             {
                 foreach (var nextNode in node.NextNodes)

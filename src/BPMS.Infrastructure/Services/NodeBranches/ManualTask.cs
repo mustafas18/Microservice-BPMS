@@ -41,7 +41,7 @@ namespace BPMSInfrastructure.Services.NodeBranches
                 var workflowHistorys =new List<WorkflowHistory>();
                 foreach (var assignee in node.Assignees)
                 {
-                    workflowHistorys.Add(new WorkflowHistory(node.WorkflowId, node.Id, assignee, DateTime.Now, WorkflowStatusEnum.NotStarted));
+                    workflowHistorys.Add(new WorkflowHistory(node.WorkflowId, node.Id, assignee, null, DateTime.Now, WorkflowStatusEnum.NotStarted));
 
                 }
                 await _workflowHistoryRepository.AddRangeAsync(workflowHistorys);

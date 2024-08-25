@@ -17,6 +17,7 @@ namespace BPMS.Domain.Entities
         public WorkflowHistory(int workflowId,
             int nodeId,
             string? assigneeId,
+            int? formDataId,
             DateTime modificationTime,
             WorkflowStatusEnum status)
         {
@@ -24,11 +25,13 @@ namespace BPMS.Domain.Entities
             NodeId = nodeId;
             AssigneeId = assigneeId;
             ModificationTime = modificationTime;
+            FormDataId = formDataId;
             Status = status;
         }
         public int WorkflowId { get; protected set; }
         public int NodeId { get; protected set; }
         public string? AssigneeId { get; protected set; }
+        public int? FormDataId { get; protected set; }
         public DateTime CreatedTime { get; protected set; } = DateTime.Now;
         public DateTime ModificationTime { get; protected set; }
         public WorkflowStatusEnum Status { get; protected set; }

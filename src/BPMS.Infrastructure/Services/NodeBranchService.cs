@@ -13,14 +13,13 @@ using System.Threading.Tasks;
 namespace BPMS.Infrastructure.Services
 {
     /// <summary>
-    // The Abstract Class NodeBranchService defines a template method that contains a skeleton of
-    // some algorithm, composed of calls to (usually) abstract primitive
-    // operations.
+    // The Class NodeBranchService defines a template method that contains a skeleton of
+    // some algorithm.
     //
     // Concrete subclasses should implement these operations, but leave the
     // template method itself intact.
     /// </summary>
-    public abstract class NodeBranchService : INodeBranchService
+    public class NodeBranchService:INodeBranchService
     {
         private readonly IRepository<Node> _nodeRepository;
         private readonly IMediator _mediator;
@@ -52,6 +51,8 @@ namespace BPMS.Infrastructure.Services
             await _mediator.Publish(new NodeRanEvent(executeResult));
         }
         // This operation have to be implemented in subclasses.
-        public abstract Task<NodeRunResult> Execute(Node node);
+        public virtual Task<NodeRunResult> Execute(Node node){
+            throw new NotImplementedException();
+        }
     }
 }

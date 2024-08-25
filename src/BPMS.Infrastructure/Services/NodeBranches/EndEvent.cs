@@ -46,7 +46,7 @@ namespace BPMSInfrastructure.Services.NodeBranches
 
         public override async Task<NodeRunResult> Execute(Node node)
         {
-            await _workflowHistoryRepository.AddAsync(new WorkflowHistory(node.WorkflowId, node.Id, null, DateTime.Now, WorkflowStatusEnum.Completed));
+            await _workflowHistoryRepository.AddAsync(new WorkflowHistory(node.WorkflowId, node.Id, null, null, DateTime.Now, WorkflowStatusEnum.Completed));
             await _flowRepository.AddAsync(new WorkflowFlow(node.WorkflowId, node.Id, DateTime.Now, WorkflowStatusEnum.Completed));
            var workflow =_workflowRepository.FirstOrDefault(s=>s.Id==node.WorkflowId);
             workflow = workflow.UpdateStatus(WorkflowStatusEnum.Completed);
