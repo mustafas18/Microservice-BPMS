@@ -3,7 +3,7 @@ syntax = "proto3";
 option csharp_namespace = "Bpms.Domain.Proto";
 
 service FormServiceGrpc {
-  rpc CreateFormData (GrpcRequest) returns (ClientResponse);
+  rpc CreateFormData (GrpcRequest) returns (ServerResponse);
 }
 
 message GrpcRequest {
@@ -12,6 +12,6 @@ message GrpcRequest {
   string assigneeId = 3;
 }
 
-message ClientResponse {
-  string FormDataId = 1;
+message ServerResponse {
+  int32 FormDataId = 1;
 }

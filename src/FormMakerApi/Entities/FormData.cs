@@ -16,14 +16,12 @@ namespace FormMakerApi.Entities
         public FormData(CreateFormDataDto model)
         {
             FormId=model.FormId;
-            FormTemplateId=model.FormTemplateId;
             AssigneeId=model.AssigneeId;
             DoneDate=model.DoneDate;
             ComponentDatas = model.ComponentDatas;
         }
    
         public int FormId { get;private set; }
-        public int FormTemplateId { get; private set; }
         public string AssigneeId { get; private set; }
         [JsonInclude]
         public List<ComponentData> ComponentDatas { get; private set; }

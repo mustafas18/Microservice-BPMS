@@ -23,9 +23,10 @@ namespace FormMakerApi.Services
         public async Task<FormTemplate> GetFormWithData(int formId)
         {
             var formData = await _formdataRepository.FirstOrDefaultAsync(s => s.FormId == formId);
+            var templateId = _formRepository.Include(nameof(FormTemplate)).Where(s => s.Id == formId).FirstOrDefault()?.Template.Id;
             var components = formData.ComponentDatas.ToList();
             components = replaceVariablesWithValues(formData);
-            var formTemplate = await _templateRepository.FirstOrDefaultAsync(s => s.Id == formData.FormTemplateId);
+            var formTemplate = await _templateRepository.FirstOrDefaultAsync(s => s.Id == templateId);
             formTemplate.Components.ForEach(c => {
                 components.ForEach(e =>
                 {
