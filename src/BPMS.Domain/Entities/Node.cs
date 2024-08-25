@@ -11,8 +11,9 @@ namespace BpmsDomain.Entities
 		public NodeTypeEnum NodeType { get; private set; }
 		public int WorkflowId { get; private set; }
 		public List<NextNode> NextNodes { get; private set; }
-		public List<string> Assignees { get; private set; }
-		public int FormId { get; private set; }
+		public List<string>? Assignees { get; private set; }
+        public List<string>? Departments { get; private set; }
+        public int FormId { get; private set; }
 		public DateTime TaskOverdue { get; private set; }
 		public int ScriptId { get; private set; }
 		public int EmailId { get; private set; }

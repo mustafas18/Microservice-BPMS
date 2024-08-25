@@ -42,16 +42,16 @@ namespace BPMS.Infrastructure.Services
         // The Run methid is the template method defines the skeleton of an algorithm.
         public async Task Run(Node node)
         {
-           var executeResult = this.Execute(node);
+           var executeResult = await this.Execute(node);
             await _mediator.Publish(new NodeRanEvent(executeResult));
         }
         public async Task Run(NextNode nextNode)
         {
             var node = _nodeRepository.FirstOrDefault(n=>n.Id==nextNode.NodeId);
-            var executeResult = this.Execute(node);
+            var executeResult = await this.Execute(node);
             await _mediator.Publish(new NodeRanEvent(executeResult));
         }
         // This operation have to be implemented in subclasses.
-        public abstract NodeRunResult Execute(Node node);
+        public abstract Task<NodeRunResult> Execute(Node node);
     }
 }

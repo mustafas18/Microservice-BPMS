@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection.Emit;
+using Variables.API.Models;
 using Variables.Entities;
 
 namespace BpmsVariables.Infrastructure
@@ -16,7 +17,7 @@ namespace BpmsVariables.Infrastructure
         {
         }
 
-
+        public DbSet<Department> Departments { get; set; }
         public DbSet<Variable> Variables { get; set; }
       
         

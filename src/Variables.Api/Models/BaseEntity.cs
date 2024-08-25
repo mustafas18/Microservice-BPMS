@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Identity.API.Models
+namespace Variables.API.Models
 {
     public class BaseEntity
     {
