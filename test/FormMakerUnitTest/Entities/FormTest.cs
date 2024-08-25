@@ -28,7 +28,7 @@ namespace FormMakerUnitTest.Entities
             var formTmplate = new FormTemplate("Form1", formComponents, "as-dwds", 1, "sdf-asd-dw");
 
             //Act
-            var form = new Form(1, 2, assignees, formTmplate, "sdf-asd-dw");
+            var form = new Form(1, 2, assignees, formTmplate,null, "sdf-asd-dw");
 
             //Assert
             Assert.NotNull(form);

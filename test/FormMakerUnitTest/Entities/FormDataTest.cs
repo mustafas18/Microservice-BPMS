@@ -31,7 +31,6 @@ namespace FormMakerUnitTest.Entities
             {
                 AssigneeId = "8",
                 FormId = 1,
-                FormTemplateId = 6,
                  ComponentDatas= new List<ComponentData>{
                     componentData1
                  }
@@ -87,7 +86,6 @@ namespace FormMakerUnitTest.Entities
         {
             AssigneeId = "8",
             FormId = 1,
-            FormTemplateId = 6,
             ComponentDatas = new List<ComponentData>{
                     componentData1
                  }
