@@ -3,7 +3,6 @@ using BPMS.Domain.Entities;
 using BPMS.Domain.Enums;
 using BPMS.Infrastructure.Services;
 using BpmsApi.Enums;
-using BpmsDomain.Entities;
 using BPMSDomain.Interfaces;
 using BPMSWebApp.Dtos;
 using Grpc.Net.Client;

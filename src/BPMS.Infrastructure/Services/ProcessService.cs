@@ -1,6 +1,5 @@
 ﻿using BPMS.Domain.Entities;
 using BPMS.Infrastructure.Services;
-using BpmsDomain.Entities;
 using BPMSDomain.Interfaces;
 using BPMSDomain.Services;
 using BPMSInfrastructure.Services.NodeBranches;

@@ -1,6 +1,6 @@
-﻿using BPMS.Domain.Events;
+﻿using BPMS.Domain.Entities;
+using BPMS.Domain.Events;
 using BPMS.Domain.Interfaces;
-using BpmsDomain.Entities;
 using BPMSDomain.Interfaces;
 using BPMSWebApp.Dtos;
 using MediatR;

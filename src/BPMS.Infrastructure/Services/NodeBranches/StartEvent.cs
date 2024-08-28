@@ -1,7 +1,6 @@
 ﻿
 
 using BPMS.Infrastructure.Services;
-using BpmsDomain.Entities;
 using BpmsApi.Enums;
 using BPMSWebApp.Dtos;
 using BPMSDomain.Interfaces;

@@ -47,8 +47,8 @@ public class Program
 
         app.MapDefaultEndpoints();
 
-        app.NewVersionedApi("bpms")
-            .MapBpmsApiV1();
+        app.NewVersionedApi("Workflow Designer")
+            .MapWorkflowDesignApiV1();
        
         app.UseDefaultOpenApi();
         app.Run();

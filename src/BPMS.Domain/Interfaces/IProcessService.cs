@@ -1,6 +1,6 @@
 ﻿
 
-using BpmsDomain.Entities;
+using BPMS.Domain.Entities;
 
 namespace BPMSDomain.Interfaces
 {

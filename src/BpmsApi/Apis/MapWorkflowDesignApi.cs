@@ -1,20 +1,23 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BPMS.Domain.Dtos;
+using BPMS.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BpmsApi.Apis
 {
-    public static class MapBpmsApi
+    public static class MapWorkflowDesignApi
     {
-        public static IEndpointRouteBuilder MapBpmsApiV1(this IEndpointRouteBuilder app)
+        public static IEndpointRouteBuilder MapWorkflowDesignApiV1(this IEndpointRouteBuilder app)
         {
-            var api = app.MapGroup("api/bpms")
+            var api = app.MapGroup("api/workflow")
                 .HasApiVersion(1.0);
 
             // Routes for querying catalog items.
             ;
-            //api.MapGet("/items/by", GetItemsByIds);
+            api.MapPut("/nodes/update", UpdateWorkflowNodes);
+            api.MapPut("/node/createupdate", CreateUpdateWorkflowNodes);
             //api.MapGet("/items/{id:int}", GetItemById);
             //api.MapGet("/items/by/{name:minlength(1)}", GetItemsByName);
             //api.MapGet("/items/{catalogItemId:int}/pic", GetItemPictureById);
@@ -37,10 +40,16 @@ namespace BpmsApi.Apis
             return app;
         }
 
+        public static List<NodeDto> UpdateWorkflowNodes([AsParameters] BpmsServices services,List<NodeDto> nodes)
+        {
+            return nodes;
+        }
+        public static List<NodeDto> CreateUpdateWorkflowNodes([AsParameters] BpmsServices services, NodeDto node)
+        {
+            return node;
+        }
 
- 
-      
-
+        
         public static string GetIdentity([AsParameters] BpmsServices services)
         {
             return services.IdentityService.GetUserIdentity();

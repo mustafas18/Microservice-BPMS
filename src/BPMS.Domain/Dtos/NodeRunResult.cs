@@ -1,4 +1,4 @@
-﻿using BpmsDomain.Entities;
+﻿using BPMS.Domain.Entities;
 using System.Runtime.CompilerServices;
 
 namespace BPMSWebApp.Dtos

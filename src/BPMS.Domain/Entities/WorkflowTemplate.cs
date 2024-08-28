@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using BPMS.Domain.Entities;
 
 namespace BpmsDomain.Entities
 {
