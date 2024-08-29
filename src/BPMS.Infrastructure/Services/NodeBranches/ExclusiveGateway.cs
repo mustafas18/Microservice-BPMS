@@ -37,7 +37,15 @@ namespace BPMSInfrastructure.Services.NodeBranches
             {
                 foreach (var nextNode in node.NextNodes)
                 {
-                    if (_evaluateGatwayCondition.Evaluate(nextNode.Condition,node.FormId))
+                    int formId = node.FormId ?? 0;
+                    if (node.FormId == null)
+                    {
+                        // TODO: error log..
+                        // "FormId of node {node.id} is null"
+                        continue;
+                    }
+                       
+                    if (_evaluateGatwayCondition.Evaluate(nextNode.Condition,formId))
                     {
                         var history = _workflowHistoryRepository.FirstOrDefault(x => x.WorkflowId == node.WorkflowId && x.NodeId == node.Id);
                         history.UpdateStatus(WorkflowStatusEnum.Completed);

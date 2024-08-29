@@ -45,7 +45,12 @@ namespace BPMSInfrastructure.Services.NodeBranches
                 var workflowHistorys = new List<WorkflowHistory>();
                 foreach (var assignee in node.Assignees)
                 {
-                    var formId = node.FormId;
+                    if(node.FormId==null) { 
+                        // TODO: error log..
+
+                        continue;
+                    }
+                    var formId = node.FormId ?? 0;
                     // create formData
                     var channel = GrpcChannel.ForAddress(Endpoints.FormMakerEndpoint);
                     var grpcFormClient = new GrpcFormClient(channel);

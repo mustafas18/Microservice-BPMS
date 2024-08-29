@@ -19,7 +19,6 @@ namespace BPMS.Infrastructure
 
 
         public DbSet<Node> Nodes { get; set; }
-        public DbSet<NextNode> NextNodes { get; set; }
         public DbSet<Workflow> Workflows { get; set; }
         public DbSet<WorkflowTemplate> WorkflowTemplates { get; set; }
 
@@ -29,6 +28,12 @@ namespace BPMS.Infrastructure
            
             modelBuilder.Entity<Node>()
                 .HasQueryFilter(m =>  m.IsDeleted == false);
+
+            modelBuilder.Entity<Node>().OwnsOne(
+             c => c.NextNodes, ownedNavigationBuilder =>
+             {
+                 ownedNavigationBuilder.ToJson();
+             });
 
             modelBuilder.Entity<WorkflowTemplate>()
                 .HasQueryFilter(m =>  m.IsDeleted == false);

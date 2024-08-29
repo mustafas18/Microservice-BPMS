@@ -8,6 +8,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using static System.Net.WebRequestMethods;
+using Bpms.Api.Apis;
 
 namespace BpmsApi;
 
@@ -44,11 +45,16 @@ public class Program
         var withApiVersioning = builder.Services.AddApiVersioning();
         builder.AddDefaultOpenApi(withApiVersioning);
 
+        builder.Services.AddAutoMapper(typeof(Program));
+
         var app = builder.Build();
 
         app.MapDefaultEndpoints();
         
         app.UseCors("myCorsPolicy");
+
+        app.NewVersionedApi("Workflow Template")
+           .WorkflowTemplateV1();
 
         app.NewVersionedApi("Workflow Designer")
             .MapWorkflowDesignApiV1();
