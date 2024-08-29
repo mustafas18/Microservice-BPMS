@@ -16,8 +16,8 @@ namespace BpmsApi.Apis
 
             // Routes for querying catalog items.
             ;
-            api.MapPut("/nodes/update", UpdateWorkflowNodes);
-            api.MapPut("/node/createupdate", CreateUpdateWorkflowNodes);
+            api.MapPut("/Nodes/Update", UpdateNodes);
+            api.MapPost("/Node/CreateUpdate", CreateUpdateNode);
             //api.MapGet("/items/{id:int}", GetItemById);
             //api.MapGet("/items/by/{name:minlength(1)}", GetItemsByName);
             //api.MapGet("/items/{catalogItemId:int}/pic", GetItemPictureById);
@@ -40,11 +40,11 @@ namespace BpmsApi.Apis
             return app;
         }
 
-        public static List<NodeDto> UpdateWorkflowNodes([AsParameters] BpmsServices services,List<NodeDto> nodes)
+        public static List<NodeDto> UpdateNodes([AsParameters] BpmsServices services,List<NodeDto> nodes)
         {
             return nodes;
         }
-        public static List<NodeDto> CreateUpdateWorkflowNodes([AsParameters] BpmsServices services, NodeDto node)
+        public static NodeDto CreateUpdateNode([AsParameters] BpmsServices services, NodeDto node)
         {
             return node;
         }

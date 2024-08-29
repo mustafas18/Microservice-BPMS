@@ -30,6 +30,7 @@ public class Program
                     builder.Services.AddDbContext<AppDbContext>(options =>
                      options.UseSqlServer(Configuration.GetConnectionString("ReleaseConnectionString")));
 #endif
+        builder.AddCorsPolicy("myCorsPolicy");
 
         builder.Services.AddProblemDetails();
 
@@ -46,10 +47,12 @@ public class Program
         var app = builder.Build();
 
         app.MapDefaultEndpoints();
+        
+        app.UseCors("myCorsPolicy");
 
         app.NewVersionedApi("Workflow Designer")
             .MapWorkflowDesignApiV1();
-       
+        
         app.UseDefaultOpenApi();
         app.Run();
 

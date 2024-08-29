@@ -20,10 +20,11 @@ public class Program
         #if DEBUG
                 builder.Services.AddDbContext<FormDbContext>(options =>
                  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
-        #else
+#else
                             builder.Services.AddDbContext<AppDbContext>(options =>
                              options.UseSqlServer(Configuration.GetConnectionString("ReleaseConnectionString")));
-        #endif
+#endif
+        builder.AddCorsPolicy("myCorsPolicy");
 
         builder.Services.AddProblemDetails();
         var withApiVersioning = builder.Services.AddApiVersioning();
@@ -43,6 +44,7 @@ public class Program
             .MapFormDataApi();
 
         app.UseDefaultOpenApi();
+        app.UseCors("myCorsPolicy");
         app.Run();
 
     }

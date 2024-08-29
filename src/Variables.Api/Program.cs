@@ -25,6 +25,7 @@ public class Program
                             builder.Services.AddDbContext<AppDbContext>(options =>
                              options.UseSqlServer(Configuration.GetConnectionString("ReleaseConnectionString")));
 #endif
+        builder.AddCorsPolicy("myCorsPolicy");
 
         builder.Services.AddProblemDetails();
         var withApiVersioning = builder.Services.AddApiVersioning();
@@ -39,6 +40,7 @@ public class Program
 
 
         app.UseDefaultOpenApi();
+        app.UseCors("myCorsPolicy");
         app.Run();
 
     }
