@@ -36,7 +36,9 @@ public class Program
         builder.Services.AddProblemDetails();
 
         builder.Services.AddHttpContextAccessor();
-       // builder.Services.AddAutoMapper(typeof(Program));
+
+        builder.Services.AddAutoMapper(typeof(Program));
+
 
         builder.Services.AddMediatR(cfg => {
             cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
@@ -45,7 +47,6 @@ public class Program
         var withApiVersioning = builder.Services.AddApiVersioning();
         builder.AddDefaultOpenApi(withApiVersioning);
 
-        builder.Services.AddAutoMapper(typeof(Program));
 
         var app = builder.Build();
 
@@ -54,9 +55,11 @@ public class Program
         app.UseCors("myCorsPolicy");
 
         app.NewVersionedApi("Workflow Template")
-           .WorkflowTemplateV1();
+            .RequireAuthorization()
+            .WorkflowTemplateV1();
 
         app.NewVersionedApi("Workflow Designer")
+            .RequireAuthorization()
             .MapWorkflowDesignApiV1();
         
         app.UseDefaultOpenApi();
