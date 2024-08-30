@@ -37,7 +37,7 @@ namespace BpmsApi.Apis
             var template = await services.WorkflowTemplateRepository
                  .Include("Nodes")
                  .FirstOrDefaultAsync(s => s.Id == node.WorkflowId);
-            if (node.Id != 0)
+            if (node.Id == 0)
             {
                 template.AddNode(services.DataMapper.Map<NodeDto, Node>(node));
             }
