@@ -14,8 +14,8 @@ namespace Bpms.Api.Apis
                 .HasApiVersion(1.0);
 
             // Routes
-            api.MapGet("/GetAll", GetWorkflowTemplates);
-            api.MapGet("/GetById", GetWorkflowTemplateById);
+            api.MapGet("/GetAll", GetWorkflowTemplates).AllowAnonymous();
+            api.MapGet("/GetById", GetWorkflowTemplateById).AllowAnonymous();
             api.MapPost("/Create", CreateWorkflowTemplate);
             api.MapPut("/Update", UpdateWorkflowTemplate);
             

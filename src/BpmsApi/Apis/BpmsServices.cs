@@ -1,18 +1,23 @@
 ﻿using AutoMapper;
 using Bpms.Services.Identity;
+using BPMS.Domain.Entities;
 using BpmsDomain.Entities;
 using BPMSDomain.Interfaces;
 using Microsoft.Extensions.Logging;
 
 namespace BpmsApi.Apis
 {
-    public class BpmsServices(
-        IMapper mapper,
-        IIdentityService identityService,
-        IRepository<WorkflowTemplate> workflowTemplateRepository)
+    public class BpmsServices
     {
-        public IMapper DataMapper { get; } = mapper;
-        public IIdentityService IdentityService { get; } = identityService;
-        public IRepository<WorkflowTemplate> WorkflowTemplateRepository { get; } = workflowTemplateRepository;
+        public BpmsServices(IMapper dataMapper,
+            IRepository<WorkflowTemplate> workflowTemplateRepository) 
+        {
+            DataMapper = dataMapper;
+            WorkflowTemplateRepository = workflowTemplateRepository;
+        }
+
+        public IMapper DataMapper { get; }
+        public IRepository<WorkflowTemplate> WorkflowTemplateRepository { get; }
     }
+    
 }

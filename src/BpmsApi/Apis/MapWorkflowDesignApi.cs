@@ -22,8 +22,8 @@ namespace BpmsApi.Apis
             api.MapPost("/Node/CreateUpdate", CreateUpdateNode);
 
             // Routes for get identity info
-            api.MapGet("/identity", GetIdentity).RequireAuthorization();
-            api.MapGet("/identity/acceess_token", GetAccessToken);
+            //api.MapGet("/identity", GetIdentity).RequireAuthorization();
+            //api.MapGet("/identity/acceess_token", GetAccessToken);
 
             return app;
         }
@@ -50,13 +50,13 @@ namespace BpmsApi.Apis
         }
 
         
-        public static string GetIdentity([AsParameters] BpmsServices services)
-        {
-            return services.IdentityService.GetUserIdentity();
-        }
-        public static string GetAccessToken([AsParameters] BpmsServices services)
-        {
-            return services.IdentityService.GetAccesssToken() ?? "null";
-        }
+        //public static string GetIdentity([AsParameters] BpmsServices services)
+        //{
+        //    return services.IdentityService.GetUserIdentity();
+        //}
+        //public static string GetAccessToken([AsParameters] BpmsServices services)
+        //{
+        //    return services.IdentityService.GetAccesssToken() ?? "null";
+        //}
     }
 }
