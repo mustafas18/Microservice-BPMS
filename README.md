@@ -1,5 +1,5 @@
 # Introduction
-This repository represents a Business Process Management System (BPMS) solution that is architected upon a microservices framework. It is developed in C# utilizing the ASP.NET Core framework and comprises four distinct microservices.
+This repository represents a Business Process Management System (BPMS) solution that is architected upon a microservices architecture. It is developed in C# utilizing the ASP.NET Core framework and comprises four distinct microservices.
 
 The system is structured into four distinct microservices as follows:
 
@@ -13,7 +13,7 @@ The system is structured into four distinct microservices as follows:
 
 ## Requirements
 * Visual Studio 2022 version 17.10 or newer.
-* .NET 8
+* .NET 8 or later
 * ASP.NET Core
 * .NET Aspire SDK component
 
@@ -22,4 +22,4 @@ The system is structured into four distinct microservices as follows:
 2. Open the `Bpms.Host.sln` file in Visual Studio
 
 # License
-The repository is licensed under the MIT License, which allows for the utilization of the source code in your projects. However, the author would like to ask you to provide a star rating to the repository before using the source code in your projects.
+The repository is licensed under the MIT License, which allows for the utilization of the source code in your projects. However, the author would like to ask the programmers to contribute and provide a star rating to the repository before using the source code in your projects.
