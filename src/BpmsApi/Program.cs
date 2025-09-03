@@ -38,10 +38,15 @@ public class Program
         builder.Services.AddHttpContextAccessor();
 
         // Register an HttpClient in BpmsApi
-        builder.Services.AddHttpClient("VariablesApi", client =>
-        {
-            client.BaseAddress = new Uri("http://localhost:5002/api/variables/"); 
-        });
+        builder.Services
+            .AddHttpClient<IVariablesClient, VariablesClient>((sp, http) =>
+            {
+                var cfg = sp.GetRequiredService<IConfiguration>();
+                http.BaseAddress = new Uri(cfg["Variables:Url"]!);
+            })
+            .AddHttpMessageHandler<BearerForwardingHandler>();
+        builder.Services.AddTransient<BearerForwardingHandler>();
+
 
         builder.Services.AddAutoMapper(typeof(Program));
 
