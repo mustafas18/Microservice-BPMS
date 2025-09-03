@@ -37,6 +37,12 @@ public class Program
 
         builder.Services.AddHttpContextAccessor();
 
+        // Register an HttpClient in BpmsApi
+        builder.Services.AddHttpClient("VariablesApi", client =>
+        {
+            client.BaseAddress = new Uri("http://localhost:5002/api/variables/"); 
+        });
+
         builder.Services.AddAutoMapper(typeof(Program));
 
 
